@@ -1,0 +1,201 @@
+/* ============================================================
+   DEIL Homepage — Global Styles
+   Data Economy & Innovation Lab
+   Sogang University — Design System
+   ============================================================ */
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f5f5f5;
+}
+::-webkit-scrollbar-thumb {
+  background: #bbb;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out both;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.5s ease-out both;
+}
+
+/* Staggered animation delays */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+
+/* Pipeline connector line */
+.pipeline-connector {
+  position: relative;
+}
+.pipeline-connector::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -1.5rem;
+  width: 1.5rem;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.3);
+}
+.pipeline-connector:last-child::after {
+  display: none;
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Section reveal animation (controlled by JS IntersectionObserver) */
+.section-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.section-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Timeline line — Sogang Red */
+.timeline-line {
+  position: relative;
+  padding-left: 2rem;
+}
+.timeline-line::before {
+  content: '';
+  position: absolute;
+  left: 0.45rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, #B60005, #f5c6c6);
+}
+
+/* Timeline dot — Sogang Red */
+.timeline-dot {
+  position: absolute;
+  left: -1.6rem;
+  top: 0.35rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #B60005;
+  border: 3px solid #fde8e8;
+}
+
+/* Status badges — Sogang Red accent */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+}
+.badge-active {
+  background: #fde8e8;
+  color: #930E14;
+}
+.badge-planning {
+  background: #fef3c7;
+  color: #92400e;
+}
+.badge-coming {
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+/* People photo placeholder — Sogang warm tone */
+.photo-placeholder {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #fde8e8, #f5c6c6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #930E14;
+  flex-shrink: 0;
+}
+
+/* Form styles */
+input:focus, textarea:focus {
+  outline: none;
+  ring: 2px;
+  border-color: #B60005;
+  box-shadow: 0 0 0 3px rgba(182, 0, 5, 0.1);
+}
+
+/* Responsive pipeline for mobile */
+@media (max-width: 768px) {
+  .pipeline-connector::after {
+    display: none;
+  }
+}
+
+/* Selection color — Sogang Red */
+::selection {
+  background: #fde8e8;
+  color: #73160d;
+}
