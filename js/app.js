@@ -343,9 +343,10 @@ function renderAlumni() {
       ${al.items.map(item => `
         <div class="section-reveal bg-white rounded-xl border border-gray-100 shadow-sm p-6 card-hover">
           <div class="flex items-start gap-4 mb-4">
-            <div class="photo-placeholder flex-shrink-0">
-              <span>${item.name[currentLang].charAt(0)}</span>
-            </div>
+            ${item.photo
+              ? `<img src="${item.photo}" alt="${item.name[currentLang]}" class="w-20 h-20 rounded-full object-cover flex-shrink-0 border-2 border-sg-100">`
+              : `<div class="photo-placeholder flex-shrink-0"><span>${item.name[currentLang].charAt(0)}</span></div>`
+            }
             <div class="flex-1 min-w-0">
               <h4 class="font-semibold text-sg-800 text-base">${item.name[currentLang]}</h4>
               <p class="text-gray-400 text-xs mt-0.5">${item.degree[currentLang]} · ${item.period}</p>

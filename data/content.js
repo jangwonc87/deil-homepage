@@ -371,15 +371,16 @@ const content = {
     ],
     items: [
       {
-        name: { ko: 'Alumni A', en: 'Alumni A' },
-        degree: { ko: '석사 졸업', en: 'M.S. Graduate' },
-        period: '2024\u20132026',
-        labRole: { ko: '데이터 파이프라인 설계', en: 'Data Pipeline Design' },
-        placement: { ko: '박사과정 진학 \u2014 placeholder', en: 'Ph.D. Program Admission \u2014 placeholder' },
+        name: { ko: '전창민', en: 'Changmin Jeon' },
+        degree: { ko: '학사 졸업', en: 'B.S. Graduate' },
+        period: '2025.04\u20132026.07',
+        labRole: { ko: '데이터 전처리 및 검증', en: 'Data Preprocessing & Validation' },
+        placement: { ko: 'KAIST 수리과학과 석사과정', en: 'KAIST Mathematical Sciences M.S. Program' },
         placementType: { ko: '대학원 진학', en: 'Graduate School' },
+        photo: 'images/alumni-jeon.png',
         quote: {
-          ko: '연구소에서 데이터 파이프라인을 직접 설계하고 운영하면서, 논문에서만 보던 데이터 분석의 전 과정을 경험할 수 있었습니다. \u2014 placeholder',
-          en: 'By designing and operating data pipelines at the lab, I experienced the entire data analysis process that I had only seen in papers. \u2014 placeholder',
+          ko: '학부 연구원으로 참여하며 실제 데이터를 전처리하고 검증하는 과정을 경험했습니다. 연구 과정에서 결과의 정확성을 확인하는 습관을 기를 수 있었고, 이러한 경험은 이후 대학원에 진학해 연구를 이어가는 데 좋은 기반이 되었습니다.',
+          en: 'As an undergraduate researcher, I gained hands-on experience in data preprocessing and validation. I developed a habit of verifying the accuracy of results, which became a strong foundation for continuing my research in graduate school.',
         },
       },
       {
