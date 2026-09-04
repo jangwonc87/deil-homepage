@@ -1,5 +1,5 @@
 // ============================================================
-// Data Economy & Innovation Lab — Content Data (KR / EN)
+// Research Institute of Data Economy and Innovation — Content Data (KR / EN)
 // ============================================================
 // 이 파일의 데이터를 수정하면 홈페이지 콘텐츠가 변경됩니다.
 // Edit this file to update website content.
@@ -31,7 +31,7 @@ const content = {
       cta2: '문의하기',
     },
     en: {
-      labName: 'Data Economy & Innovation Lab',
+      labName: 'Research Institute of Data Economy and Innovation',
       mainCopy: 'Dataset Factory for Innovation, Entrepreneurship, and Entrepreneurial Ecosystem',
       subCopy: 'We build research-ready datasets by collecting, preprocessing, transforming, and validating diverse data sources for research on innovation, entrepreneurship, and entrepreneurial ecosystems.',
       cta1: 'Explore Research',
@@ -64,7 +64,7 @@ const content = {
       title: 'About the Lab',
       subtitle: 'Building a new foundation for data-driven innovation research.',
       description: [
-        'The Data Economy & Innovation Lab was established to systematically build the data necessary for research on innovation, entrepreneurship, and entrepreneurial ecosystems.',
+        'The Research Institute of Data Economy and Innovation was established to systematically build the data necessary for research on innovation, entrepreneurship, and entrepreneurial ecosystems.',
         'Today, research competitiveness is determined not merely by having data, but by the ability to refine and connect data into forms that researchers can actually analyze. Our lab designs data pipelines tailored to research purposes based on diverse data sources\u2014publications, patents, corporate information, and institutional data\u2014with the ultimate goal of producing analysis-ready datasets and codebooks.',
         'The lab is not simply a data collection organization\u2014we aim to build data processing structures, validation systems, governance frameworks, and research infrastructure so that research ideas can be connected to actually analyzable datasets.',
       ],
@@ -491,12 +491,12 @@ const content = {
   footer: {
     ko: {
       demo: '데모 버전 \u2014 콘텐츠 및 구조는 검토 후 변경될 수 있습니다.',
-      copyright: '\u00a9 Data Economy & Innovation Lab. All rights reserved.',
+      copyright: '\u00a9 Research Institute of Data Economy and Innovation. All rights reserved.',
       confidentiality: 'Confidential raw data is not disclosed. Research outputs are shared only after appropriate review and approval.',
     },
     en: {
       demo: 'Demo version \u2014 content and structure are subject to review.',
-      copyright: '\u00a9 Data Economy & Innovation Lab. All rights reserved.',
+      copyright: '\u00a9 Research Institute of Data Economy and Innovation. All rights reserved.',
       confidentiality: 'Confidential raw data is not disclosed. Research outputs are shared only after appropriate review and approval.',
     },
   },
