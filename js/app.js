@@ -6,8 +6,8 @@
 let currentLang = 'ko';
 
 // ── Navigation mapping ────────────────────────────────────────
-const navKeys = ['home', 'about', 'research', 'projects', 'dataInfra', 'people', 'alumni', 'outputs', 'news', 'contact'];
-const sectionIds = ['home', 'about', 'research', 'projects', 'data-infra', 'people', 'alumni', 'outputs', 'news', 'contact'];
+const navKeys = ['home', 'about', 'projects', 'dataInfra', 'people', 'alumni', 'contact'];
+const sectionIds = ['home', 'about', 'projects', 'data-infra', 'people', 'alumni', 'contact'];
 
 // ── Language Toggle ───────────────────────────────────────────
 function setLang(lang) {
@@ -70,13 +70,13 @@ function renderAll() {
   renderHeader();
   renderHero();
   renderAbout();
-  renderResearch();
+  // renderResearch(); // section removed
   renderProjects();
   renderDataInfra();
   renderPeople();
   renderAlumni();
-  renderOutputs();
-  renderNews();
+  // renderOutputs(); // section removed
+  // renderNews(); // section removed
   renderContact();
   renderFooter();
   setupScrollReveal();
