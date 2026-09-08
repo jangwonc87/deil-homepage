@@ -120,38 +120,40 @@ function renderAbout() {
   const a = content.about[currentLang];
 
   document.getElementById('about-content').innerHTML = `
-    ${sectionHeader(a.title, a.subtitle)}
-
-    <!-- Description -->
-    <div class="max-w-4xl mx-auto mb-16">
-      ${a.description.map(p => `
-        <p class="section-reveal text-gray-600 text-base leading-relaxed mb-5">${p}</p>
-      `).join('')}
-    </div>
-
-    <!-- Mission & Vision -->
-    <div class="grid sm:grid-cols-2 gap-6 mb-16 max-w-4xl mx-auto">
-      <div class="section-reveal bg-white rounded-xl border border-gray-100 shadow-sm p-6 border-l-4 border-l-sg-500 card-hover">
-        <h3 class="font-semibold text-sg-800 text-lg mb-2">${a.mission.title}</h3>
-        <p class="text-gray-500 text-sm leading-relaxed">${a.mission.text}</p>
+    <!-- Asymmetric 2-col -->
+    <div class="grid lg:grid-cols-5 gap-16 mb-24">
+      <div class="lg:col-span-2">
+        <p class="text-sg-400 text-xs font-semibold tracking-[0.2em] uppercase mb-4">About</p>
+        <h2 class="section-reveal text-3xl sm:text-4xl font-bold text-gray-900 leading-tight">${a.title}</h2>
       </div>
-      <div class="section-reveal bg-white rounded-xl border border-gray-100 shadow-sm p-6 border-l-4 border-l-sg-500 card-hover">
-        <h3 class="font-semibold text-sg-800 text-lg mb-2">${a.vision.title}</h3>
-        <p class="text-gray-500 text-sm leading-relaxed">${a.vision.text}</p>
+      <div class="lg:col-span-3">
+        ${a.description.map(p => `
+          <p class="section-reveal text-gray-500 text-base leading-[1.8] mb-5">${p}</p>
+        `).join('')}
       </div>
     </div>
 
-    <!-- What We Build -->
-    <div class="max-w-5xl mx-auto">
-      <h3 class="section-reveal text-xl font-semibold text-sg-800 text-center mb-8">${a.whatWeBuildTitle}</h3>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Mission & Vision — large quote blocks -->
+    <div class="grid md:grid-cols-2 gap-0 mb-24">
+      <div class="section-reveal border-t border-gray-200 pt-8 pr-8 md:pr-16">
+        <p class="text-sg-400 text-xs font-semibold tracking-[0.2em] uppercase mb-6">${a.mission.title}</p>
+        <p class="text-gray-800 text-xl leading-relaxed font-light">${a.mission.text}</p>
+      </div>
+      <div class="section-reveal border-t border-gray-200 pt-8 pl-0 md:pl-16 mt-8 md:mt-0">
+        <p class="text-sg-400 text-xs font-semibold tracking-[0.2em] uppercase mb-6">${a.vision.title}</p>
+        <p class="text-gray-800 text-xl leading-relaxed font-light">${a.vision.text}</p>
+      </div>
+    </div>
+
+    <!-- What We Build — clean numbered list -->
+    <div>
+      <p class="section-reveal text-sg-400 text-xs font-semibold tracking-[0.2em] uppercase mb-10">${a.whatWeBuildTitle}</p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-10">
         ${a.whatWeBuildItems.map((item, i) => `
-          <div class="section-reveal bg-white rounded-xl border border-gray-100 shadow-sm p-6 card-hover ${i >= 3 ? 'sm:col-span-1 lg:col-span-1' : ''}">
-            <div class="w-8 h-8 rounded-lg bg-sg-50 flex items-center justify-center mb-4">
-              <span class="text-sg-400 text-xs font-bold">${String(i + 1).padStart(2, '0')}</span>
-            </div>
-            <h4 class="font-semibold text-sg-800 text-base mb-2">${item.title}</h4>
-            <p class="text-gray-500 text-sm leading-relaxed">${item.desc}</p>
+          <div class="section-reveal group">
+            <span class="text-sg-200 text-5xl font-extralight tabular-nums">${String(i + 1).padStart(2, '0')}</span>
+            <h4 class="font-semibold text-gray-900 text-base mt-3 mb-2">${item.title}</h4>
+            <p class="text-gray-400 text-sm leading-relaxed">${item.desc}</p>
           </div>
         `).join('')}
       </div>
@@ -190,48 +192,39 @@ function renderProjects() {
   const t = p[currentLang];
   const dsLabel = currentLang === 'ko' ? '데이터 소스' : 'Data Source';
   const outLabel = currentLang === 'ko' ? '예상 산출물' : 'Expected Output';
-  const detailLabel = currentLang === 'ko' ? '주요 내용' : 'Key Activities';
 
   document.getElementById('projects-content').innerHTML = `
-    ${sectionHeader(t.title, t.subtitle)}
-    <div class="grid lg:grid-cols-2 gap-6">
-      ${p.items.map(item => {
-        const status = item.status[currentLang];
-        const detailsHtml = item.details ? `
-          <div class="mt-4 pt-4 border-t border-gray-100">
-            <p class="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">${detailLabel}</p>
-            <ul class="space-y-1.5">
-              ${item.details.map(d => `
-                <li class="flex items-start gap-2 text-sm text-gray-600">
-                  <svg class="w-4 h-4 text-sg-300 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
-                  ${d[currentLang]}
-                </li>
-              `).join('')}
-            </ul>
-          </div>
-        ` : '';
-
-        return `
-          <div class="section-reveal bg-white rounded-xl border border-gray-100 shadow-sm p-6 card-hover">
-            <div class="flex items-start justify-between mb-3">
-              <h3 class="font-semibold text-sg-800 text-lg pr-4">${item.title[currentLang]}</h3>
-              <span class="${badgeClass(status)} whitespace-nowrap">${status}</span>
-            </div>
-            <p class="text-gray-500 text-sm mb-4 leading-relaxed">${item.desc[currentLang]}</p>
-            <div class="space-y-2 text-sm">
-              <div class="flex gap-2">
-                <span class="text-gray-400 font-medium min-w-[100px]">${dsLabel}</span>
-                <span class="text-gray-600">${item.dataSource[currentLang]}</span>
+    <div class="grid lg:grid-cols-5 gap-16 mb-4">
+      <div class="lg:col-span-2">
+        <p class="text-sg-400 text-xs font-semibold tracking-[0.2em] uppercase mb-4">Projects</p>
+        <h2 class="section-reveal text-3xl sm:text-4xl font-bold text-gray-900 leading-tight">${t.title}</h2>
+        <p class="section-reveal text-gray-400 text-sm mt-4 leading-relaxed">${t.subtitle}</p>
+      </div>
+      <div class="lg:col-span-3">
+        <div class="divide-y divide-gray-100">
+          ${p.items.map((item, idx) => {
+            const status = item.status[currentLang];
+            return `
+              <div class="section-reveal py-8 ${idx === 0 ? 'pt-0' : ''}">
+                <div class="flex items-start justify-between mb-3">
+                  <h3 class="font-semibold text-gray-900 text-lg">${item.title[currentLang]}</h3>
+                  <span class="text-xs text-sg-500 font-medium border border-sg-200 rounded-full px-3 py-1 whitespace-nowrap ml-4">${status}</span>
+                </div>
+                <p class="text-gray-400 text-sm leading-relaxed mb-4">${item.desc[currentLang]}</p>
+                <div class="flex flex-wrap gap-x-8 gap-y-2 text-xs text-gray-400">
+                  <span><span class="text-gray-300 mr-1">${dsLabel}</span> ${item.dataSource[currentLang]}</span>
+                  <span><span class="text-gray-300 mr-1">${outLabel}</span> ${item.output[currentLang]}</span>
+                </div>
+                ${item.details ? `
+                  <div class="mt-4 flex flex-wrap gap-2">
+                    ${item.details.map(d => `<span class="text-xs text-gray-500 bg-gray-50 rounded px-2.5 py-1">${d[currentLang]}</span>`).join('')}
+                  </div>
+                ` : ''}
               </div>
-              <div class="flex gap-2">
-                <span class="text-gray-400 font-medium min-w-[100px]">${outLabel}</span>
-                <span class="text-gray-600">${item.output[currentLang]}</span>
-              </div>
-            </div>
-            ${detailsHtml}
-          </div>
-        `;
-      }).join('')}
+            `;
+          }).join('')}
+        </div>
+      </div>
     </div>
   `;
 }
@@ -243,42 +236,43 @@ function renderDataInfra() {
   const g = d.governance[currentLang];
 
   document.getElementById('data-infra-content').innerHTML = `
-    ${sectionHeader(t.title, t.subtitle, true)}
-
-    <!-- Pipeline Steps with descriptions -->
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
-      ${d.steps.map((step, i) => `
-        <div class="section-reveal bg-white/10 backdrop-blur-sm rounded-xl p-5 border border-white/15 card-hover">
-          <div class="flex items-center gap-3 mb-3">
-            <div class="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center text-gray-200 text-xs font-bold flex-shrink-0">${String(i + 1).padStart(2, '0')}</div>
-            <h4 class="text-white text-sm font-semibold">${step.label[currentLang]}</h4>
-          </div>
-          <p class="text-gray-200/80 text-xs leading-relaxed">${step.desc[currentLang]}</p>
+    <div class="grid lg:grid-cols-5 gap-16 mb-16">
+      <div class="lg:col-span-2">
+        <p class="text-sg-200/60 text-xs font-semibold tracking-[0.2em] uppercase mb-4">Infrastructure</p>
+        <h2 class="section-reveal text-3xl sm:text-4xl font-bold text-white leading-tight">${t.title}</h2>
+        <p class="section-reveal text-gray-300/70 text-sm mt-4 leading-relaxed">${t.disclaimer}</p>
+      </div>
+      <div class="lg:col-span-3">
+        <div class="grid sm:grid-cols-2 gap-6">
+          ${d.steps.map((step, i) => `
+            <div class="section-reveal">
+              <span class="text-white/20 text-4xl font-extralight">${String(i + 1).padStart(2, '0')}</span>
+              <h4 class="text-white text-sm font-semibold mt-2 mb-2">${step.label[currentLang]}</h4>
+              <p class="text-gray-300/60 text-xs leading-relaxed">${step.desc[currentLang]}</p>
+            </div>
+          `).join('')}
         </div>
-      `).join('')}
-    </div>
-
-    <!-- Disclaimer -->
-    <div class="section-reveal bg-white/5 border border-white/15 rounded-xl p-6 mb-12 max-w-3xl mx-auto">
-      <div class="flex items-start gap-3">
-        <svg class="w-5 h-5 text-amber-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/></svg>
-        <p class="text-gray-200 text-sm leading-relaxed">${t.disclaimer}</p>
       </div>
     </div>
 
-    <!-- Data Governance -->
-    <div class="max-w-4xl mx-auto">
-      <h3 class="section-reveal text-xl font-semibold text-white text-center mb-3">${g.title}</h3>
-      <p class="section-reveal text-gray-200/80 text-sm text-center mb-8 max-w-2xl mx-auto leading-relaxed">${g.description}</p>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-        ${g.principles.map(p => `
-          <div class="section-reveal flex items-center gap-3 bg-white/5 rounded-lg px-4 py-3 border border-white/10">
-            <svg class="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/>
-            </svg>
-            <span class="text-gray-100 text-sm">${p}</span>
+    <!-- Governance -->
+    <div class="border-t border-white/10 pt-12">
+      <div class="grid lg:grid-cols-5 gap-16">
+        <div class="lg:col-span-2">
+          <p class="text-sg-200/60 text-xs font-semibold tracking-[0.2em] uppercase mb-4">Governance</p>
+          <h3 class="section-reveal text-xl font-semibold text-white">${g.title}</h3>
+          <p class="section-reveal text-gray-300/60 text-sm mt-3 leading-relaxed">${g.description}</p>
+        </div>
+        <div class="lg:col-span-3">
+          <div class="grid sm:grid-cols-2 gap-x-8 gap-y-4">
+            ${g.principles.map(p => `
+              <div class="section-reveal flex items-center gap-3 py-2">
+                <div class="w-1.5 h-1.5 rounded-full bg-sg-400 flex-shrink-0"></div>
+                <span class="text-gray-200 text-sm">${p}</span>
+              </div>
+            `).join('')}
           </div>
-        `).join('')}
+        </div>
       </div>
     </div>
   `;
@@ -290,32 +284,66 @@ function renderPeople() {
   const t = p[currentLang];
 
   document.getElementById('people-content').innerHTML = `
-    ${sectionHeader(t.title, t.subtitle)}
-    ${p.categories.map(cat => `
-      <div class="mb-12">
-        <h3 class="text-xl font-semibold text-sg-700 mb-2 pb-2 border-b border-gray-200">${cat.label[currentLang]}</h3>
-        ${cat.note ? `<p class="text-xs text-gray-400 italic mb-4">${cat.note[currentLang]}</p>` : ''}
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
-          ${cat.members.map(m => `
-            <div class="section-reveal bg-white rounded-xl border border-gray-100 shadow-sm p-5 card-hover">
-              <div class="flex items-start gap-4">
-                ${m.photo
-                  ? `<img src="${m.photo}" alt="${m.name[currentLang]}" class="w-20 h-20 rounded-full object-cover flex-shrink-0 border-2 border-sg-100">`
-                  : `<div class="photo-placeholder"><span>${m.name[currentLang].charAt(0)}</span></div>`
-                }
-                <div class="flex-1 min-w-0">
-                  <h4 class="font-semibold text-sg-800 text-base">${m.link && m.link !== '#' ? `<a href="${m.link}" target="_blank" class="hover:text-sg-500 transition-colors">${m.name[currentLang]}</a>` : m.name[currentLang]}</h4>
-                  <p class="text-gray-400 text-xs mt-0.5">${m.role[currentLang]}</p>
-                  <p class="text-gray-500 text-xs mt-1">${m.affiliation[currentLang]}</p>
-                  <p class="text-gray-400 text-xs mt-2 italic">${m.interest[currentLang]}</p>
-                  ${m.education ? `<p class="text-gray-400 text-xs mt-1">${m.education[currentLang]}</p>` : ''}
+  document.getElementById('people-content').innerHTML = `
+    <p class="text-sg-400 text-xs font-semibold tracking-[0.2em] uppercase mb-4">People</p>
+    <h2 class="section-reveal text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-16">${t.title}</h2>
+
+    ${p.categories.map((cat, catIdx) => {
+      const isDirector = cat.id === 'director';
+      return `
+        <div class="${catIdx > 0 ? 'mt-16' : ''}">
+          <p class="section-reveal text-gray-300 text-xs font-semibold tracking-[0.2em] uppercase mb-8 border-b border-gray-100 pb-3">${cat.label[currentLang]}</p>
+
+          ${isDirector ? `
+            <!-- Director: large feature layout -->
+            ${cat.members.map(m => `
+              <div class="section-reveal grid md:grid-cols-3 gap-10 items-start">
+                <div class="md:col-span-1">
+                  ${m.photo
+                    ? `<img src="${m.photo}" alt="${m.name[currentLang]}" class="w-full aspect-[3/4] object-cover object-top rounded-sm grayscale hover:grayscale-0 transition-all duration-500">`
+                    : `<div class="w-full aspect-[3/4] bg-gray-100 rounded-sm flex items-center justify-center"><span class="text-4xl text-gray-300">${m.name[currentLang].charAt(0)}</span></div>`
+                  }
+                </div>
+                <div class="md:col-span-2 py-2">
+                  <h3 class="text-2xl font-bold text-gray-900 mb-1">${m.link && m.link !== '#' ? `<a href="${m.link}" target="_blank" class="hover:text-sg-500 transition-colors">${m.name[currentLang]}</a>` : m.name[currentLang]}</h3>
+                  <p class="text-sg-500 text-sm font-medium mb-4">${m.role[currentLang]}</p>
+                  <p class="text-gray-500 text-sm leading-relaxed mb-6">${m.affiliation[currentLang]}</p>
+                  <div class="border-t border-gray-100 pt-5 space-y-3">
+                    <div>
+                      <p class="text-gray-300 text-xs uppercase tracking-wider mb-1">${currentLang === 'ko' ? '연구분야' : 'Research'}</p>
+                      <p class="text-gray-600 text-sm">${m.interest[currentLang]}</p>
+                    </div>
+                    ${m.education ? `
+                      <div>
+                        <p class="text-gray-300 text-xs uppercase tracking-wider mb-1">${currentLang === 'ko' ? '학력' : 'Education'}</p>
+                        <p class="text-gray-600 text-sm">${m.education[currentLang]}</p>
+                      </div>
+                    ` : ''}
+                  </div>
                 </div>
               </div>
+            `).join('')}
+          ` : `
+            <!-- Faculty: compact grid -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              ${cat.members.map(m => `
+                <div class="section-reveal group">
+                  <div class="mb-4 overflow-hidden rounded-sm">
+                    ${m.photo
+                      ? `<img src="${m.photo}" alt="${m.name[currentLang]}" class="w-full aspect-[3/4] object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500">`
+                      : `<div class="w-full aspect-[3/4] bg-gray-100 flex items-center justify-center"><span class="text-3xl text-gray-300">${m.name[currentLang].charAt(0)}</span></div>`
+                    }
+                  </div>
+                  <h4 class="font-semibold text-gray-900 text-sm">${m.link && m.link !== '#' ? `<a href="${m.link}" target="_blank" class="hover:text-sg-500 transition-colors">${m.name[currentLang]}</a>` : m.name[currentLang]}</h4>
+                  <p class="text-gray-400 text-xs mt-1 leading-relaxed">${m.affiliation[currentLang]}</p>
+                  <p class="text-gray-300 text-xs mt-1 italic">${m.interest[currentLang]}</p>
+                </div>
+              `).join('')}
             </div>
-          `).join('')}
+          `}
         </div>
-      </div>
-    `).join('')}
+      `;
+    }).join('')}
   `;
 }
 
@@ -325,58 +353,43 @@ function renderAlumni() {
   const t = al[currentLang];
 
   document.getElementById('alumni-content').innerHTML = `
-    ${sectionHeader(t.title, t.subtitle)}
+    <div class="grid lg:grid-cols-5 gap-16 mb-16">
+      <div class="lg:col-span-2">
+        <p class="text-sg-400 text-xs font-semibold tracking-[0.2em] uppercase mb-4">Placement</p>
+        <h2 class="section-reveal text-3xl sm:text-4xl font-bold text-gray-900 leading-tight">${t.title}</h2>
+        <p class="section-reveal text-gray-400 text-sm mt-4 leading-relaxed">${t.description}</p>
 
-    <!-- Description -->
-    <p class="section-reveal text-gray-600 text-base text-center max-w-3xl mx-auto mb-10">${t.description}</p>
+        <div class="section-reveal flex flex-wrap gap-2 mt-8">
+          ${al.careerPaths.map(cp => `
+            <span class="text-xs text-gray-500 bg-white rounded px-3 py-1.5 border border-gray-100">${cp.label[currentLang]}</span>
+          `).join('')}
+        </div>
+      </div>
 
-    <!-- Career Path Categories -->
-    <div class="section-reveal flex flex-wrap justify-center gap-3 mb-14">
-      ${al.careerPaths.map(cp => `
-        <span class="px-4 py-2 bg-white rounded-full text-sm font-medium text-sg-600 border border-sg-100 shadow-sm">${cp.label[currentLang]}</span>
-      `).join('')}
-    </div>
+      <div class="lg:col-span-3 space-y-12">
+        ${al.items.map(item => `
+          <div class="section-reveal">
+            <!-- Large quote -->
+            <p class="text-gray-600 text-base leading-[1.9] mb-6">\u201C${item.quote[currentLang]}\u201D</p>
 
-    <!-- Testimonial Label -->
-    <h3 class="section-reveal text-lg font-semibold text-sg-700 text-center mb-8">${t.testimonialLabel}</h3>
-
-    <!-- Alumni Cards -->
-    <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-      ${al.items.map(item => `
-        <div class="section-reveal bg-white rounded-xl border border-gray-100 shadow-sm p-6 card-hover">
-          <div class="flex items-start gap-4 mb-4">
-            ${item.photo
-              ? `<img src="${item.photo}" alt="${item.name[currentLang]}" class="w-20 h-20 rounded-full object-cover flex-shrink-0 border-2 border-sg-100">`
-              : `<div class="photo-placeholder flex-shrink-0"><span>${item.name[currentLang].charAt(0)}</span></div>`
-            }
-            <div class="flex-1 min-w-0">
-              <h4 class="font-semibold text-sg-800 text-base">${item.name[currentLang]}</h4>
-              <p class="text-gray-400 text-xs mt-0.5">${item.degree[currentLang]} · ${item.period}</p>
-              <p class="text-gray-500 text-xs mt-1">${item.labRole[currentLang]}</p>
+            <!-- Attribution -->
+            <div class="flex items-center gap-4 border-t border-gray-100 pt-5">
+              ${item.photo
+                ? `<img src="${item.photo}" alt="${item.name[currentLang]}" class="w-12 h-12 rounded-full object-cover grayscale">`
+                : `<div class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center"><span class="text-sm text-gray-400">${item.name[currentLang].charAt(0)}</span></div>`
+              }
+              <div>
+                <p class="font-semibold text-gray-900 text-sm">${item.name[currentLang]}</p>
+                <p class="text-gray-400 text-xs">${item.placement[currentLang]}</p>
+                <p class="text-gray-300 text-xs">${item.degree[currentLang]} · ${item.period}</p>
+              </div>
             </div>
           </div>
-
-          <!-- Placement -->
-          <div class="flex items-center gap-2 mb-4 bg-sg-50 rounded-lg px-4 py-2.5">
-            <svg class="w-4 h-4 text-sg-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"/>
-            </svg>
-            <span class="text-sg-700 text-sm font-medium">${item.placement[currentLang]}</span>
-          </div>
-
-          <!-- Quote -->
-          <div class="relative pl-4 border-l-2 border-sg-200">
-            <svg class="absolute -left-1.5 -top-1 w-3 h-3 text-sg-300" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.731-9.57 8.983-10.609l.998 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.986z"/>
-            </svg>
-            <p class="text-gray-500 text-sm italic leading-relaxed">${item.quote[currentLang]}</p>
-          </div>
-        </div>
-      `).join('')}
+        `).join('')}
+      </div>
     </div>
 
-    <!-- Consent Note -->
-    <p class="section-reveal text-center text-xs text-gray-400 italic mt-10">${t.consentNote}</p>
+    <p class="section-reveal text-xs text-gray-300 italic">${t.consentNote}</p>
   `;
 }
 
@@ -441,61 +454,27 @@ function renderContact() {
   const c = content.contact[currentLang];
 
   document.getElementById('contact-content').innerHTML = `
-    ${sectionHeader(c.title, c.subtitle)}
-    <div class="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
-      <!-- Contact Info -->
-      <div class="space-y-6">
-        <div class="section-reveal bg-white rounded-xl border border-gray-100 shadow-sm p-6 card-hover">
-          <div class="flex items-center gap-3 mb-2">
-            <svg class="w-5 h-5 text-sg-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
-            <span class="font-medium text-sg-800">${c.email}</span>
-          </div>
-          <p class="text-gray-500 text-sm pl-9">${c.emailValue}</p>
-        </div>
-
-        <div class="section-reveal bg-white rounded-xl border border-gray-100 shadow-sm p-6 card-hover">
-          <div class="flex items-center gap-3 mb-2">
-            <svg class="w-5 h-5 text-sg-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21"/></svg>
-            <span class="font-medium text-sg-800">${c.dept}</span>
-          </div>
-          <p class="text-gray-500 text-sm pl-9">${c.deptValue}</p>
-        </div>
-
-        <div class="section-reveal bg-white rounded-xl border border-gray-100 shadow-sm p-6 card-hover">
-          <div class="flex items-center gap-3 mb-2">
-            <svg class="w-5 h-5 text-sg-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
-            <span class="font-medium text-sg-800">${c.location}</span>
-          </div>
-          <p class="text-gray-500 text-sm pl-9">${c.locationValue}</p>
-        </div>
-
-        <p class="section-reveal text-gray-500 text-sm leading-relaxed">${c.collabNote}</p>
-
-        <button class="section-reveal w-full px-6 py-3 bg-sg-600 text-white font-semibold rounded-lg hover:bg-sg-700 transition-all shadow-md hover:shadow-lg">
-          ${c.collabBtn}
-        </button>
+    <div class="grid lg:grid-cols-5 gap-16">
+      <div class="lg:col-span-2">
+        <p class="text-sg-400 text-xs font-semibold tracking-[0.2em] uppercase mb-4">Contact</p>
+        <h2 class="section-reveal text-3xl sm:text-4xl font-bold text-gray-900 leading-tight">${c.title}</h2>
+        <p class="section-reveal text-gray-400 text-sm mt-4 leading-relaxed">${c.collabNote}</p>
       </div>
-
-      <!-- Contact Form -->
-      <div class="section-reveal bg-white rounded-xl border border-gray-100 shadow-sm p-8">
-        <form onsubmit="event.preventDefault(); alert('This form is for demo purposes only.');" class="space-y-5">
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1.5">${c.formName}</label>
-            <input type="text" placeholder="${c.formName}" class="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-sm bg-gray-50 focus:bg-white transition-colors">
+      <div class="lg:col-span-3">
+        <div class="divide-y divide-gray-100">
+          <div class="section-reveal pb-6">
+            <p class="text-gray-300 text-xs uppercase tracking-wider mb-2">${c.email}</p>
+            <p class="text-gray-800 text-base">${c.emailValue}</p>
           </div>
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1.5">${c.formEmail}</label>
-            <input type="email" placeholder="${c.formEmail}" class="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-sm bg-gray-50 focus:bg-white transition-colors">
+          <div class="section-reveal py-6">
+            <p class="text-gray-300 text-xs uppercase tracking-wider mb-2">${c.dept}</p>
+            <p class="text-gray-800 text-base">${c.deptValue}</p>
           </div>
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1.5">${c.formMessage}</label>
-            <textarea rows="4" placeholder="${c.formMessage}" class="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-sm bg-gray-50 focus:bg-white transition-colors resize-none"></textarea>
+          <div class="section-reveal py-6">
+            <p class="text-gray-300 text-xs uppercase tracking-wider mb-2">${c.location}</p>
+            <p class="text-gray-800 text-base">${c.locationValue}</p>
           </div>
-          <button type="submit" class="w-full px-6 py-3 bg-sg-500 text-white font-semibold rounded-lg hover:bg-sg-600 transition-all shadow-md hover:shadow-lg">
-            ${c.formSubmit}
-          </button>
-          <p class="text-xs text-gray-400 text-center">${c.formNote}</p>
-        </form>
+        </div>
       </div>
     </div>
   `;
