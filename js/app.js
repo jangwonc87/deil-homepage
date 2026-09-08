@@ -284,7 +284,6 @@ function renderPeople() {
   const t = p[currentLang];
 
   document.getElementById('people-content').innerHTML = `
-  document.getElementById('people-content').innerHTML = `
     <p class="text-sg-400 text-xs font-semibold tracking-[0.2em] uppercase mb-4">People</p>
     <h2 class="section-reveal text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-16">${t.title}</h2>
 
