@@ -374,10 +374,10 @@ const content = {
           },
           {
             name: { ko: '용호성', en: 'Hosung Yong' },
-            affiliation: { ko: '소속 정보 추후 추가', en: 'Affiliation to be updated' },
+            affiliation: { ko: '전 문화체육관광부 제1차관', en: 'Former 1st Vice Minister, Ministry of Culture, Sports and Tourism' },
             role: { ko: '특임교수', en: 'Special Faculty' },
-            interest: { ko: '추후 추가', en: 'To be updated' },
-            education: { ko: '추후 추가', en: 'To be updated' },
+            interest: { ko: '문화정책, 예술경영, 공공정책, AI 비즈니스', en: 'Cultural Policy, Arts Management, Public Policy, AI Business' },
+            education: { ko: '경희대 예술경영학 박사 / 서울대 행정대학원 행정학 석사 / 미국 American Univ. 예술경영학 석사 / 고려대 행정학과', en: 'Ph.D. Arts Management, Kyung Hee Univ / M.P.A. Seoul National Univ / M.A. Arts Management, American Univ / B.A. Public Administration, Korea Univ' },
             photo: 'images/prof-yong.jpg',
             link: '#',
           },
