@@ -299,9 +299,10 @@ function renderPeople() {
           ${cat.members.map(m => `
             <div class="section-reveal bg-white rounded-xl border border-gray-100 shadow-sm p-5 card-hover">
               <div class="flex items-start gap-4">
-                <div class="photo-placeholder">
-                  <span>${m.name[currentLang].charAt(0)}</span>
-                </div>
+                ${m.photo
+                  ? `<img src="${m.photo}" alt="${m.name[currentLang]}" class="w-20 h-20 rounded-full object-cover flex-shrink-0 border-2 border-sg-100">`
+                  : `<div class="photo-placeholder"><span>${m.name[currentLang].charAt(0)}</span></div>`
+                }
                 <div class="flex-1 min-w-0">
                   <h4 class="font-semibold text-sg-800 text-base">${m.link && m.link !== '#' ? `<a href="${m.link}" target="_blank" class="hover:text-sg-500 transition-colors">${m.name[currentLang]}</a>` : m.name[currentLang]}</h4>
                   <p class="text-gray-400 text-xs mt-0.5">${m.role[currentLang]}</p>
