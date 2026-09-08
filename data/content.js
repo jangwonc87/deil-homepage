@@ -318,6 +318,7 @@ const content = {
             role: { ko: '내부 교수진', en: 'Internal Faculty' },
             interest: { ko: 'AI Adoption, Industrial Applications of AI, Technology Forecasting with ML', en: 'AI Adoption, Industrial Applications of AI, Technology Forecasting with ML' },
             education: { ko: 'Georgia State University 경영정보시스템 박사 / 서울대 경영학 석사·학사', en: 'Ph.D. Computer Information Systems, Georgia State University / M.A. & B.A. Seoul National University' },
+            photo: 'images/prof-woo.jpg',
             link: 'https://scc.sogang.ac.kr/sogangmot/new_faculties_13.html',
           },
           {
@@ -326,6 +327,7 @@ const content = {
             role: { ko: '내부 교수진', en: 'Internal Faculty' },
             interest: { ko: '경영혁신전략, 혁신성, 신제품 개발', en: 'Innovation Strategy, Innovativeness, New Product Development' },
             education: { ko: '미주리대학교 세인트루이스 경영학 박사', en: 'Ph.D. Business Administration, University of Missouri-St. Louis' },
+            photo: 'images/prof-lee-gt.jpg',
             link: 'https://sgmot.sogang.ac.kr/sogangmot/new_faculties_18.html',
           },
           {
@@ -334,6 +336,7 @@ const content = {
             role: { ko: '내부 교수진', en: 'Internal Faculty' },
             interest: { ko: '기술과 개발, 과학기술정책, 국가 R&D 프로그램', en: 'Technology & Development, S&T Policy, National R&D Programs' },
             education: { ko: 'Sussex대 SPRU 연구석사 / 서울대 정책학 석사 · 경제학 학사', en: 'M.Res. SPRU, University of Sussex / M.A. & B.A. Seoul National University' },
+            photo: 'images/prof-jung-bs.jpg',
             link: 'https://sgmot.sogang.ac.kr/sogangmot/new_faculties_12.html',
           },
           {
@@ -357,6 +360,7 @@ const content = {
             role: { ko: '특임교수', en: 'Special Faculty' },
             interest: { ko: '재정정책, 공공정책, 경제협력', en: 'Fiscal Policy, Public Policy, Economic Cooperation' },
             education: { ko: '미 메릴랜드대 공공정책학 석사 / 서울대 행정대학원 행정학 석사 / 연세대 경제학과', en: 'M.P.P. University of Maryland / M.P.A. Seoul National University / B.A. Economics, Yonsei University' },
+            photo: 'images/prof-choi.jpg',
             link: '#',
           },
           {
@@ -365,6 +369,7 @@ const content = {
             role: { ko: '특임교수', en: 'Special Faculty' },
             interest: { ko: '산업조직론, 무역, 화폐경제학, 데이터 거버넌스', en: 'Industrial Organization, Trade, Monetary Economics, Data Governance' },
             education: { ko: '미국 인디애나대 경제학 박사 / 서울대 경제학과', en: 'Ph.D. Economics, Indiana University / B.A. Economics, Seoul National University' },
+            photo: 'images/prof-lee-hd.jpg',
             link: '#',
           },
           {
