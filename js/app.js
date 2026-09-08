@@ -303,10 +303,11 @@ function renderPeople() {
                   <span>${m.name[currentLang].charAt(0)}</span>
                 </div>
                 <div class="flex-1 min-w-0">
-                  <h4 class="font-semibold text-sg-800 text-base">${m.name[currentLang]}</h4>
+                  <h4 class="font-semibold text-sg-800 text-base">${m.link && m.link !== '#' ? `<a href="${m.link}" target="_blank" class="hover:text-sg-500 transition-colors">${m.name[currentLang]}</a>` : m.name[currentLang]}</h4>
                   <p class="text-gray-400 text-xs mt-0.5">${m.role[currentLang]}</p>
                   <p class="text-gray-500 text-xs mt-1">${m.affiliation[currentLang]}</p>
                   <p class="text-gray-400 text-xs mt-2 italic">${m.interest[currentLang]}</p>
+                  ${m.education ? `<p class="text-gray-400 text-xs mt-1">${m.education[currentLang]}</p>` : ''}
                 </div>
               </div>
             </div>

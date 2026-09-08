@@ -290,57 +290,89 @@ const content = {
 
   // ── People ──────────────────────────────────────────────────
   people: {
-    ko: { title: '구성원', subtitle: '연구소의 교수진 및 연구진입니다.' },
-    en: { title: 'People', subtitle: 'Faculty and research team of the lab.' },
+    ko: { title: '구성원', subtitle: '연구소의 교수진 및 자문위원입니다.' },
+    en: { title: 'People', subtitle: 'Faculty and advisory board of the institute.' },
     categories: [
       {
         id: 'director',
-        label: { ko: 'Director / PI', en: 'Director / PI' },
+        label: { ko: '연구소장', en: 'Director' },
         members: [
-          { name: { ko: 'Professor Name', en: 'Professor Name' }, affiliation: { ko: '서강대학교 기술경영전문대학원', en: 'Sogang University, Graduate School of Management of Technology' }, role: { ko: '연구소장', en: 'Lab Director' }, interest: { ko: 'Research Interests \u2014 placeholder', en: 'Research Interests \u2014 placeholder' }, link: '#' },
+          {
+            name: { ko: '문성욱', en: 'Sungwook Moon' },
+            affiliation: { ko: '서강대학교 기술경영전문대학원 정교수 / 원장', en: 'Professor & Dean, Sogang University Graduate School of MOT' },
+            role: { ko: '연구소장', en: 'Lab Director' },
+            interest: { ko: 'Entrepreneurial Ecosystem, 디지털 전환, 과학기술기반 혁신, 전략경제학, 산업조직론', en: 'Entrepreneurial Ecosystem, Digital Transformation, Science & Technology-based Innovation, Strategic Economics, Industrial Organization' },
+            education: { ko: '노스웨스턴대 켈로그 경영대학원 박사 / 미시간대 응용경제학 석사 / 서울대 경영학사', en: 'Ph.D. Kellogg School of Management, Northwestern / M.A. Applied Economics, U of Michigan / B.A. Seoul National University' },
+            link: 'https://sgmot.sogang.ac.kr/sogangmot/new_faculties_16.html',
+          },
         ],
       },
       {
         id: 'internal',
-        label: { ko: 'Internal Faculty', en: 'Internal Faculty' },
+        label: { ko: '내부 교수진', en: 'Internal Faculty' },
         members: [
-          { name: { ko: 'Faculty Member A', en: 'Faculty Member A' }, affiliation: { ko: '소속 \u2014 placeholder', en: 'Affiliation \u2014 placeholder' }, role: { ko: '내부 교수진', en: 'Internal Faculty' }, interest: { ko: 'Research Interests \u2014 placeholder', en: 'Research Interests \u2014 placeholder' }, link: '#' },
-          { name: { ko: 'Faculty Member B', en: 'Faculty Member B' }, affiliation: { ko: '소속 \u2014 placeholder', en: 'Affiliation \u2014 placeholder' }, role: { ko: '내부 교수진', en: 'Internal Faculty' }, interest: { ko: 'Research Interests \u2014 placeholder', en: 'Research Interests \u2014 placeholder' }, link: '#' },
+          {
+            name: { ko: '우한균', en: 'Hankyun Woo' },
+            affiliation: { ko: '서강대학교 기술경영전문대학원 교수', en: 'Professor, Sogang University Graduate School of MOT' },
+            role: { ko: '내부 교수진', en: 'Internal Faculty' },
+            interest: { ko: 'AI Adoption, Industrial Applications of AI, Technology Forecasting with ML', en: 'AI Adoption, Industrial Applications of AI, Technology Forecasting with ML' },
+            education: { ko: 'Georgia State University 경영정보시스템 박사 / 서울대 경영학 석사·학사', en: 'Ph.D. Computer Information Systems, Georgia State University / M.A. & B.A. Seoul National University' },
+            link: 'https://scc.sogang.ac.kr/sogangmot/new_faculties_13.html',
+          },
+          {
+            name: { ko: '이규태', en: 'Gyutae Lee' },
+            affiliation: { ko: '서강대학교 기술경영전문대학원 교수 / 연구처장', en: 'Professor & Director of Research Affairs, Sogang University Graduate School of MOT' },
+            role: { ko: '내부 교수진', en: 'Internal Faculty' },
+            interest: { ko: '경영혁신전략, 혁신성, 신제품 개발', en: 'Innovation Strategy, Innovativeness, New Product Development' },
+            education: { ko: '미주리대학교 세인트루이스 경영학 박사', en: 'Ph.D. Business Administration, University of Missouri-St. Louis' },
+            link: 'https://sgmot.sogang.ac.kr/sogangmot/new_faculties_18.html',
+          },
+          {
+            name: { ko: '정병선', en: 'Byungsun Jung' },
+            affiliation: { ko: '서강대학교 기술경영전문대학원 부교수', en: 'Associate Professor, Sogang University Graduate School of MOT' },
+            role: { ko: '내부 교수진', en: 'Internal Faculty' },
+            interest: { ko: '기술과 개발, 과학기술정책, 국가 R&D 프로그램', en: 'Technology & Development, S&T Policy, National R&D Programs' },
+            education: { ko: 'Sussex대 SPRU 연구석사 / 서울대 정책학 석사 · 경제학 학사', en: 'M.Res. SPRU, University of Sussex / M.A. & B.A. Seoul National University' },
+            link: 'https://sgmot.sogang.ac.kr/sogangmot/new_faculties_12.html',
+          },
+          {
+            name: { ko: '김문환', en: 'Moonhwan Kim' },
+            affiliation: { ko: '서강대학교 기술경영전문대학원 부교수', en: 'Associate Professor, Sogang University Graduate School of MOT' },
+            role: { ko: '내부 교수진', en: 'Internal Faculty' },
+            interest: { ko: '기술혁신, 창업 및 신산업 전략/정책, 벤처금융, 스타트업 생태계', en: 'Technology Innovation, Entrepreneurship & New Industry Strategy, Venture Finance, Startup Ecosystem' },
+            education: { ko: '한남대 기술경제 박사 / University of Colorado MBA / 연세대 경제학 학사', en: 'Ph.D. Technology Economics, Hannam Univ / MBA, U of Colorado / B.A. Economics, Yonsei University' },
+            link: 'https://sgmot.sogang.ac.kr/sogangmot/new_faculties_10.html',
+          },
         ],
       },
       {
         id: 'special',
-        label: { ko: 'Special Faculty / Affiliated Faculty', en: 'Special Faculty / Affiliated Faculty' },
+        label: { ko: '특임교수 / 자문위원', en: 'Special Faculty / Advisors' },
         members: [
-          { name: { ko: 'Special Faculty A', en: 'Special Faculty A' }, affiliation: { ko: '소속 \u2014 placeholder', en: 'Affiliation \u2014 placeholder' }, role: { ko: '특임 교수', en: 'Special Faculty' }, interest: { ko: 'Research Interests \u2014 placeholder', en: 'Research Interests \u2014 placeholder' }, link: '#' },
-        ],
-      },
-      {
-        id: 'international',
-        label: { ko: 'International Faculty / Advisors', en: 'International Faculty / Advisors' },
-        note: { ko: '※ 해외 교수진 정보는 협의 및 공개 가능 여부 확인 후 최종 반영 예정', en: '※ International faculty information will be finalized after consultation and confirmation of disclosure' },
-        members: [
-          { name: { ko: 'Scott Stern', en: 'Scott Stern' }, affiliation: { ko: 'MIT Sloan', en: 'MIT Sloan' }, role: { ko: 'Advisor / Collaborator Placeholder', en: 'Advisor / Collaborator Placeholder' }, interest: { ko: 'Innovation, Entrepreneurship', en: 'Innovation, Entrepreneurship' }, link: '#' },
-          { name: { ko: 'Benjamin Jones', en: 'Benjamin Jones' }, affiliation: { ko: 'Kellogg School of Management', en: 'Kellogg School of Management' }, role: { ko: 'Advisor / Collaborator Placeholder', en: 'Advisor / Collaborator Placeholder' }, interest: { ko: 'Innovation, Science of Science', en: 'Innovation, Science of Science' }, link: '#' },
-          { name: { ko: 'Dashun Wang', en: 'Dashun Wang' }, affiliation: { ko: 'Northwestern University', en: 'Northwestern University' }, role: { ko: 'Advisor / Collaborator Placeholder', en: 'Advisor / Collaborator Placeholder' }, interest: { ko: 'Science of Science, AI', en: 'Science of Science, AI' }, link: '#' },
-        ],
-      },
-      {
-        id: 'leaders',
-        label: { ko: 'Research Leaders', en: 'Research Leaders' },
-        members: [
-          { name: { ko: 'Research Leader A', en: 'Research Leader A' }, affiliation: { ko: '소속 \u2014 placeholder', en: 'Affiliation \u2014 placeholder' }, role: { ko: '연구 리더', en: 'Research Leader' }, interest: { ko: 'Responsibility \u2014 placeholder', en: 'Responsibility \u2014 placeholder' }, link: '#' },
-          { name: { ko: 'Research Leader B', en: 'Research Leader B' }, affiliation: { ko: '소속 \u2014 placeholder', en: 'Affiliation \u2014 placeholder' }, role: { ko: '연구 리더', en: 'Research Leader' }, interest: { ko: 'Responsibility \u2014 placeholder', en: 'Responsibility \u2014 placeholder' }, link: '#' },
-        ],
-      },
-      {
-        id: 'students',
-        label: { ko: 'Student Researchers', en: 'Student Researchers' },
-        note: { ko: '※ 학생 연구원 정보는 공개 동의 및 공개 범위 확인 후 게시 예정', en: '※ Student researcher information will be posted after consent and scope confirmation' },
-        members: [
-          { name: { ko: 'Student Researcher A', en: 'Student Researcher A' }, affiliation: { ko: '소속 \u2014 placeholder', en: 'Affiliation \u2014 placeholder' }, role: { ko: '학생 연구원', en: 'Student Researcher' }, interest: { ko: 'Project \u2014 placeholder', en: 'Project \u2014 placeholder' }, link: '#' },
-          { name: { ko: 'Student Researcher B', en: 'Student Researcher B' }, affiliation: { ko: '소속 \u2014 placeholder', en: 'Affiliation \u2014 placeholder' }, role: { ko: '학생 연구원', en: 'Student Researcher' }, interest: { ko: 'Project \u2014 placeholder', en: 'Project \u2014 placeholder' }, link: '#' },
-          { name: { ko: 'Student Researcher C', en: 'Student Researcher C' }, affiliation: { ko: '소속 \u2014 placeholder', en: 'Affiliation \u2014 placeholder' }, role: { ko: '학생 연구원', en: 'Student Researcher' }, interest: { ko: 'Project \u2014 placeholder', en: 'Project \u2014 placeholder' }, link: '#' },
+          {
+            name: { ko: '최상대', en: 'Sangdae Choi' },
+            affiliation: { ko: '전 기획재정부 제2차관 / 전 주 OECD 대사', en: 'Former 2nd Vice Minister of Economy & Finance / Former Ambassador to OECD' },
+            role: { ko: '특임교수', en: 'Special Faculty' },
+            interest: { ko: '재정정책, 공공정책, 경제협력', en: 'Fiscal Policy, Public Policy, Economic Cooperation' },
+            education: { ko: '미 메릴랜드대 공공정책학 석사 / 서울대 행정대학원 행정학 석사 / 연세대 경제학과', en: 'M.P.P. University of Maryland / M.P.A. Seoul National University / B.A. Economics, Yonsei University' },
+            link: '#',
+          },
+          {
+            name: { ko: '이호동', en: 'Hodong Lee' },
+            affiliation: { ko: '한국평가데이터(코데이터) 고문 / 전 대표이사', en: 'Advisor, Korea Evaluation Data (CoDATA) / Former CEO' },
+            role: { ko: '특임교수', en: 'Special Faculty' },
+            interest: { ko: '산업조직론, 무역, 화폐경제학, 데이터 거버넌스', en: 'Industrial Organization, Trade, Monetary Economics, Data Governance' },
+            education: { ko: '미국 인디애나대 경제학 박사 / 서울대 경제학과', en: 'Ph.D. Economics, Indiana University / B.A. Economics, Seoul National University' },
+            link: '#',
+          },
+          {
+            name: { ko: '용호성', en: 'Hosung Yong' },
+            affiliation: { ko: '소속 정보 추후 추가', en: 'Affiliation to be updated' },
+            role: { ko: '특임교수', en: 'Special Faculty' },
+            interest: { ko: '추후 추가', en: 'To be updated' },
+            education: { ko: '추후 추가', en: 'To be updated' },
+            link: '#',
+          },
         ],
       },
     ],
