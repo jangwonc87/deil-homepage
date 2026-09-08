@@ -471,9 +471,9 @@ const content = {
     ko: {
       title: '문의',
       subtitle: '연구소에 대한 문의 사항은 아래로 연락해주세요.',
-      email: '이메일', emailValue: 'lab-email@sogang.ac.kr \u2014 placeholder',
+      email: '이메일', emailValue: 'sgmot@sogang.ac.kr',
       dept: '소속', deptValue: '서강대학교 기술경영전문대학원',
-      location: '위치', locationValue: '서강대학교 캠퍼스 \u2014 placeholder',
+      location: '위치', locationValue: '서울특별시 마포구 백범로 35(신수동) 서강대학교',
       collabBtn: '협력 문의',
       collabNote: '연구 협력, 데이터 인프라, 공동 프로젝트에 관심이 있으신 분은 문의해 주세요.',
       formName: '이름', formEmail: '이메일', formMessage: '메시지', formSubmit: '보내기',
@@ -482,9 +482,9 @@ const content = {
     en: {
       title: 'Contact',
       subtitle: 'For inquiries about the lab, please reach out below.',
-      email: 'Email', emailValue: 'lab-email@sogang.ac.kr \u2014 placeholder',
+      email: 'Email', emailValue: 'sgmot@sogang.ac.kr',
       dept: 'Department', deptValue: 'Sogang University, Graduate School of Management of Technology',
-      location: 'Location', locationValue: 'Sogang University Campus \u2014 placeholder',
+      location: 'Location', locationValue: '35 Baekbeom-ro, Mapo-gu, Seoul, Korea (Sogang University)',
       collabBtn: 'Collaboration Inquiry',
       collabNote: 'For research collaboration, data infrastructure, or joint projects, please contact us.',
       formName: 'Name', formEmail: 'Email', formMessage: 'Message', formSubmit: 'Send',

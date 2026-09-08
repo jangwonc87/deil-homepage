@@ -299,7 +299,7 @@ function renderPeople() {
               <div class="section-reveal grid md:grid-cols-3 gap-10 items-start">
                 <div class="md:col-span-1">
                   ${m.photo
-                    ? `<img src="${m.photo}" alt="${m.name[currentLang]}" class="w-full aspect-[3/4] object-cover object-top rounded-sm grayscale hover:grayscale-0 transition-all duration-500">`
+                    ? `<img src="${m.photo}" alt="${m.name[currentLang]}" class="w-full aspect-[3/4] object-cover object-top rounded-sm hover:scale-[1.02] transition-transform duration-500">`
                     : `<div class="w-full aspect-[3/4] bg-gray-100 rounded-sm flex items-center justify-center"><span class="text-4xl text-gray-300">${m.name[currentLang].charAt(0)}</span></div>`
                   }
                 </div>
@@ -329,7 +329,7 @@ function renderPeople() {
                 <div class="section-reveal group">
                   <div class="mb-4 overflow-hidden rounded-sm">
                     ${m.photo
-                      ? `<img src="${m.photo}" alt="${m.name[currentLang]}" class="w-full aspect-[3/4] object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500">`
+                      ? `<img src="${m.photo}" alt="${m.name[currentLang]}" class="w-full aspect-[3/4] object-cover object-top group-hover:scale-[1.03] transition-transform duration-500">`
                       : `<div class="w-full aspect-[3/4] bg-gray-100 flex items-center justify-center"><span class="text-3xl text-gray-300">${m.name[currentLang].charAt(0)}</span></div>`
                     }
                   </div>
@@ -374,7 +374,7 @@ function renderAlumni() {
             <!-- Attribution -->
             <div class="flex items-center gap-4 border-t border-gray-100 pt-5">
               ${item.photo
-                ? `<img src="${item.photo}" alt="${item.name[currentLang]}" class="w-12 h-12 rounded-full object-cover grayscale">`
+                ? `<img src="${item.photo}" alt="${item.name[currentLang]}" class="w-12 h-12 rounded-full object-cover">`
                 : `<div class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center"><span class="text-sm text-gray-400">${item.name[currentLang].charAt(0)}</span></div>`
               }
               <div>
