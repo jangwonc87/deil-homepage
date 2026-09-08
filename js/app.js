@@ -123,8 +123,11 @@ function renderAbout() {
     <!-- Asymmetric 2-col -->
     <div class="grid lg:grid-cols-5 gap-16 mb-24">
       <div class="lg:col-span-2">
-        <p class="text-sg-400 text-xs font-semibold tracking-[0.2em] uppercase mb-4">About</p>
-        <h2 class="section-reveal text-3xl sm:text-4xl font-bold text-gray-900 leading-tight">${a.title}</h2>
+        <div class="flex items-center gap-3 mb-5">
+          <div class="accent-line"></div>
+          <p class="text-sg-400 text-xs font-semibold tracking-[0.2em] uppercase">About</p>
+        </div>
+        <h2 class="section-reveal text-3xl sm:text-[2.5rem] font-bold text-gray-900 leading-[1.15]">${a.title}</h2>
       </div>
       <div class="lg:col-span-3">
         ${a.description.map(p => `
@@ -196,8 +199,11 @@ function renderProjects() {
   document.getElementById('projects-content').innerHTML = `
     <div class="grid lg:grid-cols-5 gap-16 mb-4">
       <div class="lg:col-span-2">
-        <p class="text-sg-400 text-xs font-semibold tracking-[0.2em] uppercase mb-4">Projects</p>
-        <h2 class="section-reveal text-3xl sm:text-4xl font-bold text-gray-900 leading-tight">${t.title}</h2>
+        <div class="flex items-center gap-3 mb-5">
+          <div class="accent-line"></div>
+          <p class="text-sg-400 text-xs font-semibold tracking-[0.2em] uppercase">Projects</p>
+        </div>
+        <h2 class="section-reveal text-3xl sm:text-[2.5rem] font-bold text-gray-900 leading-[1.15]">${t.title}</h2>
         <p class="section-reveal text-gray-400 text-sm mt-4 leading-relaxed">${t.subtitle}</p>
       </div>
       <div class="lg:col-span-3">
@@ -238,8 +244,11 @@ function renderDataInfra() {
   document.getElementById('data-infra-content').innerHTML = `
     <div class="grid lg:grid-cols-5 gap-16 mb-16">
       <div class="lg:col-span-2">
-        <p class="text-sg-200/60 text-xs font-semibold tracking-[0.2em] uppercase mb-4">Infrastructure</p>
-        <h2 class="section-reveal text-3xl sm:text-4xl font-bold text-white leading-tight">${t.title}</h2>
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-[2px] bg-gradient-to-r from-sg-400 to-sg-300"></div>
+          <p class="text-sg-200/60 text-xs font-semibold tracking-[0.2em] uppercase">Infrastructure</p>
+        </div>
+        <h2 class="section-reveal text-3xl sm:text-[2.5rem] font-bold text-white leading-[1.15]">${t.title}</h2>
         <p class="section-reveal text-gray-300/70 text-sm mt-4 leading-relaxed">${t.disclaimer}</p>
       </div>
       <div class="lg:col-span-3">
@@ -284,8 +293,11 @@ function renderPeople() {
   const t = p[currentLang];
 
   document.getElementById('people-content').innerHTML = `
-    <p class="text-sg-400 text-xs font-semibold tracking-[0.2em] uppercase mb-4">People</p>
-    <h2 class="section-reveal text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-16">${t.title}</h2>
+    <div class="flex items-center gap-3 mb-5">
+      <div class="accent-line"></div>
+      <p class="text-sg-400 text-xs font-semibold tracking-[0.2em] uppercase">People</p>
+    </div>
+    <h2 class="section-reveal text-3xl sm:text-[2.5rem] font-bold text-gray-900 leading-[1.15] mb-16">${t.title}</h2>
 
     ${p.categories.map((cat, catIdx) => {
       const isDirector = cat.id === 'director';
@@ -354,8 +366,11 @@ function renderAlumni() {
   document.getElementById('alumni-content').innerHTML = `
     <div class="grid lg:grid-cols-5 gap-16 mb-16">
       <div class="lg:col-span-2">
-        <p class="text-sg-400 text-xs font-semibold tracking-[0.2em] uppercase mb-4">Placement</p>
-        <h2 class="section-reveal text-3xl sm:text-4xl font-bold text-gray-900 leading-tight">${t.title}</h2>
+        <div class="flex items-center gap-3 mb-5">
+          <div class="accent-line"></div>
+          <p class="text-sg-400 text-xs font-semibold tracking-[0.2em] uppercase">Placement</p>
+        </div>
+        <h2 class="section-reveal text-3xl sm:text-[2.5rem] font-bold text-gray-900 leading-[1.15]">${t.title}</h2>
         <p class="section-reveal text-gray-400 text-sm mt-4 leading-relaxed">${t.description}</p>
 
         <div class="section-reveal flex flex-wrap gap-2 mt-8">
@@ -455,8 +470,11 @@ function renderContact() {
   document.getElementById('contact-content').innerHTML = `
     <div class="grid lg:grid-cols-5 gap-16">
       <div class="lg:col-span-2">
-        <p class="text-sg-400 text-xs font-semibold tracking-[0.2em] uppercase mb-4">Contact</p>
-        <h2 class="section-reveal text-3xl sm:text-4xl font-bold text-gray-900 leading-tight">${c.title}</h2>
+        <div class="flex items-center gap-3 mb-5">
+          <div class="accent-line"></div>
+          <p class="text-sg-400 text-xs font-semibold tracking-[0.2em] uppercase">Contact</p>
+        </div>
+        <h2 class="section-reveal text-3xl sm:text-[2.5rem] font-bold text-gray-900 leading-[1.15]">${c.title}</h2>
         <p class="section-reveal text-gray-400 text-sm mt-4 leading-relaxed">${c.collabNote}</p>
       </div>
       <div class="lg:col-span-3">

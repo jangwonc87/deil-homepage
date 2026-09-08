@@ -1,171 +1,116 @@
 /* ============================================================
    DEIL Homepage — Global Styles
-   Data Economy & Innovation Lab
-   Sogang University — Design System
+   Research Institute of Data Economy and Innovation
+   Sogang University — 2026 Design System
    ============================================================ */
 
-/* Smooth scrolling */
+/* ── Base ─────────────────────────────────────────────────── */
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5rem;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: #f5f5f5;
-}
-::-webkit-scrollbar-thumb {
-  background: #bbb;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #888;
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* ── Custom Scrollbar ─────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #d4d4d4; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #a3a3a3; }
+
+/* ── Selection ────────────────────────────────────────────── */
+::selection {
+  background: rgba(182, 0, 5, 0.12);
+  color: #73160d;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes pulse-soft {
-  0%, 100% { opacity: 0.6; }
-  50% { opacity: 1; }
-}
-
-.animate-fade-in-up {
-  animation: fadeInUp 0.6s ease-out both;
-}
-
-.animate-fade-in {
-  animation: fadeIn 0.5s ease-out both;
-}
-
-.animate-slide-in-right {
-  animation: slideInRight 0.5s ease-out both;
-}
-
-/* Staggered animation delays */
-.delay-100 { animation-delay: 0.1s; }
-.delay-200 { animation-delay: 0.2s; }
-.delay-300 { animation-delay: 0.3s; }
-.delay-400 { animation-delay: 0.4s; }
-.delay-500 { animation-delay: 0.5s; }
-.delay-600 { animation-delay: 0.6s; }
-
-/* Pipeline connector line */
-.pipeline-connector {
-  position: relative;
-}
-.pipeline-connector::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  right: -1.5rem;
-  width: 1.5rem;
-  height: 2px;
-  background: rgba(255, 255, 255, 0.3);
-}
-.pipeline-connector:last-child::after {
-  display: none;
-}
-
-/* Card hover effects */
-.card-hover {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.card-hover:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
-}
-
-/* Section reveal animation (controlled by JS IntersectionObserver) */
+/* ── Section Reveal ───────────────────────────────────────── */
 .section-reveal {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transform: translateY(32px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .section-reveal.revealed {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Timeline line — Sogang Red */
-.timeline-line {
-  position: relative;
-  padding-left: 2rem;
+/* Staggered children */
+.section-reveal:nth-child(2) { transition-delay: 0.06s; }
+.section-reveal:nth-child(3) { transition-delay: 0.12s; }
+.section-reveal:nth-child(4) { transition-delay: 0.18s; }
+.section-reveal:nth-child(5) { transition-delay: 0.24s; }
+.section-reveal:nth-child(6) { transition-delay: 0.30s; }
+.section-reveal:nth-child(7) { transition-delay: 0.36s; }
+.section-reveal:nth-child(8) { transition-delay: 0.42s; }
+
+/* ── Hero Animations ──────────────────────────────────────── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-.timeline-line::before {
-  content: '';
-  position: absolute;
-  left: 0.45rem;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: linear-gradient(to bottom, #B60005, #f5c6c6);
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animate-fade-in-up { animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.animate-fade-in { animation: fadeIn 0.6s ease-out both; }
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+
+/* ── Section Divider ──────────────────────────────────────── */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, #e5e5e5 20%, #e5e5e5 80%, transparent);
 }
 
-/* Timeline dot — Sogang Red */
-.timeline-dot {
-  position: absolute;
-  left: -1.6rem;
-  top: 0.35rem;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: #B60005;
-  border: 3px solid #fde8e8;
+/* ── Gradient Text ────────────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, #1a1a1a 0%, #525252 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-/* Status badges — Sogang Red accent */
+/* ── Subtle Grid Pattern ──────────────────────────────────── */
+.grid-pattern {
+  background-image:
+    linear-gradient(rgba(0,0,0,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.015) 1px, transparent 1px);
+  background-size: 72px 72px;
+}
+
+/* ── Card & Container Styles ──────────────────────────────── */
+.card-hover {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+}
+
+/* ── Status Badges ────────────────────────────────────────── */
 .badge {
   display: inline-flex;
   align-items: center;
   padding: 0.25rem 0.75rem;
   border-radius: 9999px;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 500;
-  letter-spacing: 0.025em;
+  letter-spacing: 0.05em;
 }
-.badge-active {
-  background: #fde8e8;
-  color: #930E14;
-}
-.badge-planning {
-  background: #fef3c7;
-  color: #92400e;
-}
-.badge-coming {
-  background: #f1f5f9;
-  color: #64748b;
-}
+.badge-active { background: #fef2f2; color: #930E14; }
+.badge-planning { background: #fefce8; color: #854d0e; }
+.badge-coming { background: #f8fafc; color: #64748b; }
 
-/* People photo placeholder — Sogang warm tone */
+/* ── People Placeholder ───────────────────────────────────── */
 .photo-placeholder {
   width: 80px;
   height: 80px;
@@ -179,23 +124,46 @@ html {
   flex-shrink: 0;
 }
 
-/* Form styles */
+/* ── Form Focus ───────────────────────────────────────────── */
 input:focus, textarea:focus {
   outline: none;
-  ring: 2px;
   border-color: #B60005;
-  box-shadow: 0 0 0 3px rgba(182, 0, 5, 0.1);
+  box-shadow: 0 0 0 3px rgba(182, 0, 5, 0.08);
 }
 
-/* Responsive pipeline for mobile */
+/* ── Accent Line ──────────────────────────────────────────── */
+.accent-line {
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(to right, #B60005, #d45a5a);
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
 @media (max-width: 768px) {
-  .pipeline-connector::after {
-    display: none;
-  }
+  .pipeline-connector::after { display: none; }
 }
 
-/* Selection color — Sogang Red */
-::selection {
-  background: #fde8e8;
-  color: #73160d;
+/* ── Timeline (kept for future use) ───────────────────────── */
+.timeline-line {
+  position: relative;
+  padding-left: 2rem;
+}
+.timeline-line::before {
+  content: '';
+  position: absolute;
+  left: 0.45rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, #B60005, #f5c6c6);
+}
+.timeline-dot {
+  position: absolute;
+  left: -1.6rem;
+  top: 0.35rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #B60005;
+  border: 3px solid #fde8e8;
 }
