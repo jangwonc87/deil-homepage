@@ -138,6 +138,33 @@ input:focus, textarea:focus {
   background: linear-gradient(to right, #B60005, #d45a5a);
 }
 
+/* ── Hero Overlay (Mobile & Desktop Responsive) ───────────── */
+.hero-overlay {
+  background: linear-gradient(180deg, rgba(112,0,3,0.92) 0%, rgba(90,16,9,0.88) 55%, rgba(90,16,9,0.75) 100%);
+}
+@media (min-width: 640px) {
+  .hero-overlay {
+    background: linear-gradient(to right, rgba(112,0,3,0.88) 0%, rgba(112,0,3,0.80) 32%, rgba(112,0,3,0.3) 45%, transparent 60%);
+  }
+}
+
+/* ── Mobile Enhancements ─────────────────────────────────── */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.break-keep {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+@media (max-width: 640px) {
+  .section-reveal {
+    transform: translateY(18px);
+    transition-duration: 0.6s;
+  }
+}
+
 /* ── Responsive ───────────────────────────────────────────── */
 @media (max-width: 768px) {
   .pipeline-connector::after { display: none; }
@@ -167,3 +194,4 @@ input:focus, textarea:focus {
   background: #B60005;
   border: 3px solid #fde8e8;
 }
+
