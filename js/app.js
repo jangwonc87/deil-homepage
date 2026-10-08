@@ -113,13 +113,6 @@ function renderHero() {
   document.getElementById('hero-sub-copy').textContent = h.subCopy;
   document.getElementById('hero-cta1').textContent = h.cta1;
   document.getElementById('hero-cta2').textContent = h.cta2;
-
-  const noticeLabel = document.getElementById('notice-label');
-  const noticeText = document.getElementById('notice-text');
-  if (noticeLabel) noticeLabel.textContent = currentLang === 'ko' ? '연구소 공지' : 'Lab Notice';
-  if (noticeText) noticeText.textContent = currentLang === 'ko' 
-    ? '제7회 데이터 경제 컨퍼런스 성과 및 연구 데이터셋 구축 안내' 
-    : '7th Data Economy Conference & Dataset Factory Updates';
 }
 
 // ── About Section ─────────────────────────────────────────────
