@@ -386,6 +386,102 @@ const content = {
     ],
   },
 
+  // ── Research Team ───────────────────────────────────────────
+  // Keep supplied portraits null until the Library originals are available
+  // locally and visually checked. Do not infer identities from other photos.
+  team: {
+    ko: {
+      title: '연구 참여 구성원',
+      roleLabel: '담당 업무',
+      interestLabel: '관심 분야',
+      noPhoto: '사진 없음',
+      emailLabel: '이메일',
+      newWindow: '새 창',
+    },
+    en: {
+      title: 'Research Team',
+      roleLabel: 'Responsibilities',
+      interestLabel: 'Interests',
+      noPhoto: 'No photo',
+      emailLabel: 'Email',
+      newWindow: 'opens in a new tab',
+    },
+    members: [
+      {
+        id: 'joon-mo-park',
+        name: { ko: '박준모', en: 'Joon Mo Park' },
+        initials: 'JP',
+        affiliation: {
+          ko: '서강대학교 일반대학원 기술경영 박사과정',
+          en: 'Ph.D. student in Management of Technology, Graduate School, Sogang University',
+        },
+        interest: { ko: '창업 생태계 분석, 기업 데이터 분석', en: 'Entrepreneurial ecosystem analysis, corporate data analysis' },
+        role: {
+          ko: '데이터 셋 구축 업무 총괄(공공데이터, 기업 데이터 구축)',
+          en: 'Overseeing dataset development (public and corporate data)',
+        },
+        email: 'jmpark@wednus.com',
+        photo: 'images/researcher-park-jm.jpg',
+      },
+      {
+        id: 'jangwon-choi',
+        name: { ko: '최장원', en: 'Jangwon Choi' },
+        initials: 'JC',
+        affiliation: {
+          ko: '서강대학교 일반대학원 기술경영 석사졸업 / 폰드그룹 주식회사 이사',
+          en: 'Master’s graduate in Management of Technology, Graduate School, Sogang University / Director, Pond Group Co., Ltd.',
+        },
+        interest: { ko: '조직관리, 사업개발', en: 'Organizational management, business development' },
+        role: { ko: '팀 커뮤니케이션 및 조율, 프로젝트 관리', en: 'Team communication and coordination, project management' },
+        email: 'jangwonc87@gmail.com',
+        photo: 'images/researcher-choi-jw.png',
+      },
+      {
+        id: 'seyoung-chung',
+        name: { ko: '정세영', en: 'Seyoung Chung' },
+        initials: 'SC',
+        affiliation: { ko: '서강대 경제학과 석사과정', en: 'Master’s student in Economics, Sogang University' },
+        interest: { ko: 'AI금융, LLM', en: 'AI in finance, LLMs' },
+        role: { ko: '데이터 수집 및 전처리', en: 'Data collection and preprocessing' },
+        linkedin: 'https://www.linkedin.com/in/chung-seyoung/',
+        photo: 'images/researcher-chung-sy.jpg',
+      },
+      {
+        id: 'seoyoon-jeong',
+        name: { ko: '정서윤', en: 'Seoyoon Jeong' },
+        initials: 'SJ',
+        affiliation: { ko: '서강대학교 경제학부', en: 'School of Economics, Sogang University' },
+        interest: { ko: '과학기술·산업 빅데이터 분석, AI·데이터 활용', en: 'Big data analysis in science, technology and industry; applications of AI and data' },
+        role: { ko: '공공데이터 수집 및 전처리', en: 'Public data collection and preprocessing' },
+        email: 'zzh12@sogang.ac.kr',
+        photo: null,
+      },
+      {
+        id: 'haeun-kim',
+        name: { ko: '김하은', en: 'Haeun Kim' },
+        initials: 'HK',
+        affiliation: { ko: '서강대학교 일반대학원 경제학과 석사과정', en: 'Master’s student in Economics, Graduate School, Sogang University' },
+        interest: { ko: '금융데이터 분석 / AI 활용 경제분석 / 디지털 금융', en: 'Financial data analysis / AI-assisted economic analysis / digital finance' },
+        role: {
+          ko: '연구 문헌 및 공공데이터 수집·정리, 연구용 데이터 확보 지원',
+          en: 'Collecting and organizing research literature and public data; supporting research data acquisition',
+        },
+        email: 'hgkdms0810@gmail.com',
+        photo: 'images/researcher-kim-he.jpg',
+      },
+      {
+        id: 'yuna-lee',
+        name: { ko: '이유나', en: 'Yuna Lee' },
+        initials: 'YL',
+        affiliation: { ko: '서강대학교 영문학부(영미어문전공), 심리학과', en: 'School of English (English Language and Literature), Department of Psychology, Sogang University' },
+        interest: { ko: '고급 분석 및 통계 모델링, 빅데이터', en: 'Advanced analytics and statistical modeling, big data' },
+        role: { ko: '공공데이터 수집 및 전처리', en: 'Public data collection and preprocessing' },
+        email: 'chloelee9513@gmail.com',
+        photo: 'images/researcher-lee-yn.jpg',
+      },
+    ],
+  },
+
   // ── Alumni / Student Placement ──────────────────────────────
   alumni: {
     ko: {

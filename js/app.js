@@ -329,6 +329,69 @@ function renderPeople() {
         </div>
       `;
     }).join('')}
+    ${renderTeam()}
+  `;
+}
+
+// ── Research Team ─────────────────────────────────────────────
+function renderTeam() {
+  const team = content.team;
+  if (!team || !team.members || team.members.length === 0) return '';
+  const t = team[currentLang];
+
+  return `
+    <div class="mt-12 sm:mt-16 pt-10 sm:pt-14 border-t border-gray-100">
+      <p class="section-reveal text-gray-400 text-xs font-semibold tracking-[0.2em] uppercase mb-6 sm:mb-8 border-b border-gray-100 pb-2.5 sm:pb-3">${t.title}</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        ${team.members.map(member => `
+          <div class="section-reveal bg-white rounded-xl border border-gray-100 shadow-2xs hover:shadow-md hover:border-sg-100 transition-all duration-300 p-5 flex flex-col justify-between group">
+            <div>
+              <!-- Profile Top -->
+              <div class="flex items-start gap-3.5 sm:gap-4 mb-3.5">
+                ${member.photo
+                  ? `<img src="${member.photo}" alt="${member.name[currentLang]}" class="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover flex-shrink-0 border-2 border-white ring-1 ring-gray-100 shadow-2xs group-hover:scale-105 transition-transform duration-300">`
+                  : `<div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-sg-50 text-sg-700 font-semibold flex items-center justify-center text-sm sm:text-base border border-sg-100 flex-shrink-0 shadow-2xs" role="img" aria-label="${member.name[currentLang]}">${member.initials}</div>`
+                }
+                <div class="min-w-0 flex-1">
+                  <h4 class="font-bold text-gray-900 text-base leading-snug">${member.name[currentLang]}</h4>
+                  <p class="text-gray-500 text-xs mt-1 leading-snug break-keep">${member.affiliation[currentLang]}</p>
+                </div>
+              </div>
+
+              <!-- Role & Interests -->
+              <div class="space-y-2 pt-3 border-t border-gray-50 text-xs">
+                <div>
+                  <span class="text-gray-400 text-[11px] font-medium mr-1.5">${t.roleLabel}:</span>
+                  <span class="text-gray-700 break-keep leading-relaxed">${member.role[currentLang]}</span>
+                </div>
+                <div>
+                  <span class="text-gray-400 text-[11px] font-medium mr-1.5">${t.interestLabel}:</span>
+                  <span class="text-gray-600 break-keep leading-relaxed italic">${member.interest[currentLang]}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Contact Footer -->
+            <div class="mt-4 pt-3 border-t border-gray-50 flex items-center justify-between text-xs">
+              ${member.email
+                ? `<a href="mailto:${member.email}" class="inline-flex items-center gap-1.5 text-sg-700 hover:text-sg-800 text-[11px] font-medium hover:underline break-all transition-colors" title="${member.name[currentLang]} ${t.emailLabel}">
+                    <svg class="w-3.5 h-3.5 flex-shrink-0 text-sg-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
+                    <span>${member.email}</span>
+                  </a>`
+                : '<span></span>'
+              }
+              ${member.linkedin
+                ? `<a href="${member.linkedin}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-sg-700 hover:text-sg-800 text-[11px] font-medium hover:underline transition-colors">
+                    <span>LinkedIn</span>
+                    <svg class="w-3 h-3 text-sg-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
+                  </a>`
+                : ''
+              }
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
   `;
 }
 
