@@ -209,86 +209,55 @@ function renderProjects() {
       </div>
     </div>
 
-    <!-- 2. Academic Conferences & Forums (프로젝트 하위 아카이브) -->
+    <!-- 2. Academic Conferences & Forums (Compact Chronological List) -->
     ${p.conferences && p.conferences.length > 0 ? `
       <div class="mt-16 sm:mt-24 pt-12 sm:pt-16 border-t border-gray-100">
         <div class="grid lg:grid-cols-5 gap-8 sm:gap-12 lg:gap-16">
           <div class="lg:col-span-2">
             <div class="flex items-center gap-3 mb-4 sm:mb-5">
               <div class="accent-line"></div>
-              <p class="text-sg-400 text-xs font-semibold tracking-[0.2em] uppercase">Conferences & Forums</p>
+              <p class="text-sg-400 text-xs font-semibold tracking-[0.2em] uppercase">Conferences</p>
             </div>
             <h3 class="section-reveal text-2xl sm:text-3xl font-bold text-gray-900 leading-tight break-keep">${p.conferencesTitle[currentLang]}</h3>
             <p class="section-reveal text-gray-500 text-xs sm:text-sm mt-3 leading-relaxed break-keep">${p.conferencesSubtitle[currentLang]}</p>
-            
-            <div class="section-reveal mt-6 p-4 rounded-xl bg-gray-50 border border-gray-100 text-xs text-gray-600 leading-relaxed">
-              <p class="font-semibold text-gray-800 mb-1.5 flex items-center gap-1.5">
-                <svg class="w-4 h-4 text-sg-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z"/></svg>
-                ${currentLang === 'ko' ? '컨퍼런스 아카이브 안내' : 'Conference Series Notice'}
-              </p>
-              <p class="text-gray-500 text-[11px] leading-relaxed">
-                ${currentLang === 'ko' 
-                  ? '제3회 컨퍼런스 자료를 시작으로, 제4회·5회·6회 컨퍼런스 및 학술 포럼 성과도 순차적으로 업데이트됩니다.' 
-                  : 'Starting with the 3rd Conference, archives for subsequent sessions will be updated sequentially.'}
-              </p>
-            </div>
           </div>
 
-          <div class="lg:col-span-3 space-y-6">
-            ${p.conferences.map(conf => `
-              <div class="section-reveal bg-white rounded-2xl border border-gray-200 shadow-xs hover:shadow-md transition-all duration-300 overflow-hidden group">
-                <!-- Media Thumbnail Banner (Click to open full invitation lightbox) -->
-                <div class="relative aspect-[16/8] sm:aspect-[21/9] bg-gray-100 overflow-hidden cursor-pointer" onclick="openPosterModal('${conf.fullPoster[currentLang]}', '${conf.title[currentLang]}')">
-                  <img src="${conf.thumbnail[currentLang]}" alt="${conf.title[currentLang]}" class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500">
-                  <div class="absolute inset-0 bg-black/10 group-hover:bg-black/25 transition-colors flex items-center justify-center">
-                    <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-black/65 backdrop-blur-sm text-white text-xs font-medium group-hover:bg-sg-700 transition-colors shadow-sm">
-                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
-                      ${currentLang === 'ko' ? '초청장 원본 확대보기' : 'View Full Invitation'}
+          <div class="lg:col-span-3">
+            <div class="divide-y divide-gray-100 border-t border-b border-gray-100">
+              ${p.conferences.map((conf, idx) => `
+                <div class="section-reveal py-6 sm:py-8 ${idx === 0 ? 'pt-0' : ''} group">
+                  <!-- Header: Edition & Date & Venue -->
+                  <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                    <div class="flex items-center gap-2.5">
+                      <span class="px-2.5 py-0.5 text-xs font-bold rounded-md bg-sg-700 text-white shadow-xs">${conf.editionLabel[currentLang]}</span>
+                      <span class="text-xs font-semibold text-gray-700 font-mono tracking-wide">${conf.date}</span>
+                    </div>
+                    <span class="text-[11px] sm:text-xs text-gray-500 flex items-center gap-1">
+                      <svg class="w-3.5 h-3.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                      ${conf.venue[currentLang]}
                     </span>
                   </div>
-                  <!-- Badges -->
-                  <div class="absolute top-3 left-3 flex items-center gap-2">
-                    <span class="px-2.5 py-1 text-xs font-bold rounded-md bg-sg-700 text-white shadow-xs">${conf.editionLabel[currentLang]}</span>
-                    <span class="px-2.5 py-1 text-xs font-medium rounded-md bg-black/70 backdrop-blur-xs text-white">${conf.date}</span>
-                  </div>
-                  <div class="absolute bottom-3 left-3">
-                    <span class="px-2.5 py-1 text-[11px] font-medium rounded-full bg-white/95 text-gray-800 shadow-xs flex items-center gap-1.5">
-                      <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                      ${conf.status[currentLang]}
-                    </span>
-                  </div>
-                </div>
 
-                <!-- Card Body -->
-                <div class="p-5 sm:p-7">
-                  <h4 class="text-lg sm:text-xl font-bold text-gray-900 leading-snug break-keep">${conf.title[currentLang]}</h4>
-                  <p class="text-xs sm:text-sm text-sg-600 font-medium mt-1 mb-3 break-keep">${conf.subtitle[currentLang]}</p>
-                  <p class="text-gray-600 text-xs sm:text-sm leading-relaxed mb-5 break-keep">${conf.desc[currentLang]}</p>
+                  <!-- Title & Subtitle -->
+                  <h4 class="text-base sm:text-lg font-bold text-gray-900 leading-snug break-keep group-hover:text-sg-700 transition-colors mb-1">${conf.title[currentLang]}</h4>
+                  <p class="text-xs sm:text-sm text-sg-600 font-medium mb-3 break-keep">${conf.subtitle[currentLang]}</p>
+                  <p class="text-gray-500 text-xs sm:text-sm leading-relaxed mb-4 break-keep">${conf.desc[currentLang]}</p>
 
-                  <!-- Highlights List -->
-                  <div class="border-t border-gray-100 pt-4 mb-5 space-y-2.5">
-                    <p class="text-gray-400 text-[11px] font-semibold tracking-wider uppercase">${currentLang === 'ko' ? '주요 세션 및 연사' : 'Key Sessions & Speakers'}</p>
+                  <!-- Highlights List (Compact) -->
+                  <div class="bg-gray-50/90 rounded-xl p-3 sm:p-4 space-y-2 border border-gray-100">
                     ${conf.highlights.map(hl => `
                       <div class="flex items-start gap-2.5 text-xs">
-                        <span class="px-2 py-0.5 rounded bg-gray-100 text-gray-700 font-medium text-[11px] flex-shrink-0 mt-0.5">${hl.label[currentLang]}</span>
+                        <span class="px-2 py-0.5 rounded bg-white text-gray-600 font-medium text-[11px] border border-gray-200/70 flex-shrink-0 mt-0.5">${hl.label[currentLang]}</span>
                         <div class="min-w-0 flex-1">
-                          <p class="font-semibold text-gray-800 break-keep">${hl.speaker[currentLang]}</p>
-                          <p class="text-gray-500 text-[11px] italic break-keep">${hl.topic[currentLang]}</p>
+                          <span class="font-semibold text-gray-800 break-keep mr-1.5">${hl.speaker[currentLang]}</span>
+                          <span class="text-gray-500 text-[11px] break-keep">${hl.topic[currentLang]}</span>
                         </div>
                       </div>
                     `).join('')}
                   </div>
-
-                  <!-- Action Button -->
-                  <div class="pt-4 border-t border-gray-100">
-                    <button onclick="openPosterModal('${conf.fullPoster[currentLang]}', '${conf.title[currentLang]}')" class="inline-flex items-center gap-2 px-4 py-2.5 bg-sg-700 hover:bg-sg-800 text-white text-xs font-semibold rounded-lg shadow-xs hover:shadow-md transition-all active:scale-98 cursor-pointer">
-                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-                      <span>${currentLang === 'ko' ? '공식 초청장 및 상세 일정표 보기' : 'View Official Invitation'}</span>
-                    </button>
-                  </div>
                 </div>
-              </div>
-            `).join('')}
+              `).join('')}
+            </div>
           </div>
         </div>
       </div>

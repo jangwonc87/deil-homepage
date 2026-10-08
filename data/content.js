@@ -239,62 +239,203 @@ const content = {
       },
     ],
     conferencesTitle: {
-      ko: '데이터 경제 컨퍼런스 시리즈',
-      en: 'Data Economy Conference Series',
+      ko: '데이터 경제 컨퍼런스',
+      en: 'Data Economy Conferences',
     },
     conferencesSubtitle: {
-      ko: '데이터 경제 포럼 및 서강대학교 MOT가 주관하는 글로벌 학술·산학 컨퍼런스 아카이브입니다.',
-      en: 'Archive of international academic and industry conferences hosted by Data Economy Forum & Sogang MOT.',
+      ko: '서강대학교 기술경영전문대학원과 데이터경제포럼이 주관하는 연례 글로벌 학술·정책 컨퍼런스 아카이브입니다.',
+      en: 'Annual academic and policy conference archive hosted by Sogang MOT and Data Economy Forum.',
     },
     conferences: [
       {
+        id: 'conf-7th',
+        edition: '7',
+        editionLabel: { ko: '제7회', en: '7th' },
+        date: '2026.04.10',
+        title: {
+          ko: '제7회 데이터 경제 컨퍼런스: 데이터가 여는 미래 의료',
+          en: '7th Data Economy Conference: Future Healthcare Opened by Data',
+        },
+        subtitle: {
+          ko: '대학 과학기술사업화의 전략과 과제 (과학기술정보통신부 후원)',
+          en: 'Strategies & Challenges of University Science & Technology Commercialization',
+        },
+        venue: { ko: '대한상공회의소 중회의실 A', en: 'KCCI Conference Room A' },
+        desc: {
+          ko: 'AI 바이오헬스 산업의 핵심 동력으로 부상한 대학과 대학병원의 기술사업화 구조와 데이터 활용 체계를 점검하고 정책 방향을 모색한 컨퍼런스입니다.',
+          en: 'A conference exploring technology commercialization frameworks and health data ecosystems driven by universities and medical centers.',
+        },
+        highlights: [
+          {
+            label: { ko: '기조 세션', en: 'Plenary' },
+            speaker: { ko: '문성욱 교수 (서강대 MOT 원장 / 데이터경제포럼 대표)', en: 'Prof. Sungwook Moon (Sogang MOT / DEF)' },
+            topic: { ko: '대학의 과학기술 사업화, 데이터, AI 기반 바이오헬스: 희망과 쟁점', en: 'Science Commercialization, Data & AI Bio-Health' },
+          },
+          {
+            label: { ko: '기술사업화', en: 'Session 1' },
+            speaker: { ko: '정수용 대표 (한국아이큐비아) · 박상민 교수 (서울대병원)', en: 'Sooyong Jung (IQVIA) · Prof. Sangmin Park (SNU)' },
+            topic: { ko: 'AI와 신약 개발, AI 3.0 시대 의료기기 기술사업화 전략 및 과제', en: 'AI Drug Discovery & Medical Device Commercialization' },
+          },
+          {
+            label: { ko: 'AI 헬스케어', en: 'Session 2' },
+            speaker: { ko: '민경필 박사 (케어마루나) · 김재겸 교수 (고려대)', en: 'Dr. Kyungpil Min · Prof. Jaekyeom Kim' },
+            topic: { ko: 'AI-Native 헬스케어 부상과 정밀영양·마이크로바이옴 데이터 플랫폼', en: 'AI-Native Healthcare & Precision Nutrition Platform' },
+          },
+          {
+            label: { ko: '패널 토론', en: 'Panel' },
+            speaker: { ko: '오상우 교수(좌장), 양성일 전 복지부 차관, 정병선 전 과기부 차관, 최상대 전 OECD 대사', en: 'Prof. Sangwoo Oh & Former Vice Ministers' },
+            topic: { ko: '데이터 경제 시대, 대학 기술사업화의 새 패러다임 논의', en: 'New Paradigm for University Tech Commercialization' },
+          },
+        ],
+      },
+      {
+        id: 'conf-6th',
+        edition: '6',
+        editionLabel: { ko: '제6회', en: '6th' },
+        date: '2025.09.09',
+        title: {
+          ko: '2025 데이터경제 학술 컨퍼런스: AI 시대 과학연구 혁신',
+          en: '2025 Data Economy Academic Conference: AI & Science of Science',
+        },
+        subtitle: {
+          ko: 'Measuring & Maximizing Research Impact (KISTEP 공동 주최)',
+          en: 'Measuring & Maximizing Research Impact (Co-hosted with KISTEP)',
+        },
+        venue: { ko: '한국과학기술회관 / 서강대 베르크만스 우정원', en: 'Korea Science & Tech Center / Sogang Univ.' },
+        desc: {
+          ko: '미국 노스웨스턴 대학교의 세계적 석학들을 초청하여, AI가 과학 연구개발의 새로운 파트너로서 미치는 영향과 과학의 구조를 분석한 국제 학술 컨퍼런스입니다.',
+          en: 'An academic conference featuring world-renowned scholars from Northwestern University discussing AI in R&D and the science of science.',
+        },
+        highlights: [
+          {
+            label: { ko: '해외 석학 초청', en: 'Keynote 1' },
+            speaker: { ko: 'Prof. Benjamin F. Jones (Northwestern University Kellogg)', en: 'Prof. Benjamin F. Jones (Northwestern Kellogg)' },
+            topic: { ko: 'Artificial Intelligence in R&D: 연구개발의 새로운 파트너와 혁신 가속화', en: 'Artificial Intelligence in R&D' },
+          },
+          {
+            label: { ko: '해외 석학 초청', en: 'Keynote 2' },
+            speaker: { ko: 'Prof. Dashun Wang (Northwestern University Kellogg / CSSI)', en: 'Prof. Dashun Wang (Northwestern Kellogg / CSSI)' },
+            topic: { ko: 'Distilling Lessons from the Science of Science: 과학 연구의 구조와 협업 네트워크', en: 'Distilling Lessons from the Science of Science' },
+          },
+          {
+            label: { ko: '국내 전문가', en: 'Session' },
+            speaker: { ko: '이경하 센터장 (KISTI) · 김지홍 부연구위원 (KISTEP)', en: 'KISTI & KISTEP Senior Researchers' },
+            topic: { ko: 'Generative AI와 AI for Science, 데이터 기반 과학기술 인재정책 전략', en: 'Generative AI for Science & Talent Policies' },
+          },
+        ],
+      },
+      {
+        id: 'conf-5th',
+        edition: '5',
+        editionLabel: { ko: '제5회', en: '5th' },
+        date: '2024.12.23',
+        title: {
+          ko: '제5회 데이터 경제 컨퍼런스: 데이터 기반 서비스 산업',
+          en: '5th Data Economy Conference: Data-Driven Service Industry',
+        },
+        subtitle: {
+          ko: '데이터 거래와 경쟁 (데이터 가치평가 및 산업 정책)',
+          en: 'Data Transactions and Market Competition',
+        },
+        venue: { ko: '대한상공회의소 중회의실 A', en: 'KCCI Conference Room A' },
+        desc: {
+          ko: '서비스 산업에서의 데이터 경제 전환과 데이터 유통·거래 생태계 구축, 데이터 가치평가 및 공정 경쟁을 위한 정책 과제를 집중 논의했습니다.',
+          en: 'A policy conference focused on data-driven transformation in service sectors, data valuation, and fair market competition.',
+        },
+        highlights: [
+          {
+            label: { ko: '기조 세션', en: 'Plenary' },
+            speaker: { ko: '서강대 기술경영전문대학원 & 데이터경제포럼', en: 'Sogang MOT & Data Economy Forum' },
+            topic: { ko: '서비스 산업에서의 데이터 경제 전환과 플랫폼 경쟁 구도', en: 'Data Economy Transition in Services & Platform Competition' },
+          },
+          {
+            label: { ko: '데이터 거래', en: 'Session 1' },
+            speaker: { ko: '데이터 거래소 및 산업계 데이터 책임자', en: 'Data Exchange & Industry Leaders' },
+            topic: { ko: '데이터 유통·거래 생태계 조성 및 데이터 자산 가치평가 체계', en: 'Data Market Ecosystem & Asset Valuation Framework' },
+          },
+          {
+            label: { ko: '시장과 규제', en: 'Session 2' },
+            speaker: { ko: '학계 및 정책 연구진', en: 'Academic & Policy Researchers' },
+            topic: { ko: '데이터 결합과 독점 방지, 서비스 산업 경쟁 촉진을 위한 제도적 과제', en: 'Data Bundling, Anti-monopoly & Policy Challenges' },
+          },
+        ],
+      },
+      {
+        id: 'conf-4th',
+        edition: '4',
+        editionLabel: { ko: '제4회', en: '4th' },
+        date: '2024.01.18',
+        title: {
+          ko: '제4회 데이터 경제 컨퍼런스: 혁신, 시장과 데이터',
+          en: '4th Data Economy Conference: Innovation, Markets and Data',
+        },
+        subtitle: {
+          ko: '사회 발전의 동력 (서강대학교 LINC 3.0 사업단 후원)',
+          en: 'Drivers of Social Advancement (Sponsored by LINC 3.0)',
+        },
+        venue: { ko: '대한상공회의소 중회의실 A', en: 'KCCI Conference Room A' },
+        desc: {
+          ko: '생성형 AI를 포함한 데이터 기반 디지털 기술이 금융, 정밀의료, 공공 분야에 미치는 기회와 위험, 그리고 사회적 대응 방향을 심도 있게 다루었습니다.',
+          en: 'In-depth exploration of generative AI, precision healthcare data, and digital government data infrastructure.',
+        },
+        highlights: [
+          {
+            label: { ko: '기조 세션', en: 'Plenary' },
+            speaker: { ko: '문성욱 교수 (서강대 MOT) · 조만 교수 (KDI 대학원)', en: 'Prof. Sungwook Moon · Prof. Man Cho' },
+            topic: { ko: '생성형 AI: 기회와 위험 그리고 대응 / 빅데이터·머신러닝 기반 금융 혁신', en: 'Generative AI Opportunities & Big Data ML in Finance' },
+          },
+          {
+            label: { ko: '정밀의료', en: 'Session 1' },
+            speaker: { ko: '이민섭 대표 (이원다이애그노믹스) · 김동완 교수 (서울대병원)', en: 'EDGC · SNU Hospital' },
+            topic: { ko: '유전자 DTC와 정밀의료 환경의 변화, 암치료 정밀의료 데이터 현황', en: 'Genetic DTC, Precision Healthcare & Clinical Data' },
+          },
+          {
+            label: { ko: '인프라·거버넌스', en: 'Session 2' },
+            speaker: { ko: '이승현 국장 (디지털플랫폼정부) · 곽범준 국장 (금융감독원)', en: 'Digital Platform Gov · FSS' },
+            topic: { ko: '디지털플랫폼정부 AI·데이터 활용 기반 구축과 금융권 AI 과제', en: 'Gov AI Infrastructure & Financial AI Challenges' },
+          },
+          {
+            label: { ko: '패널 토론', en: 'Panel' },
+            speaker: { ko: '김경선 회장(전 여가부 차관), 오태석 전 과기부 차관, 네이버, KODATA', en: 'Policy Leaders, Naver & KODATA' },
+            topic: { ko: '시장의 데이터 활용을 위한 기반 구축과 보호', en: 'Market Data Utilization & Governance' },
+          },
+        ],
+      },
+      {
         id: 'conf-3rd',
         edition: '3',
-        editionLabel: { ko: '제3회', en: '3rd Edition' },
+        editionLabel: { ko: '제3회', en: '3rd' },
         date: '2023.01.05',
-        status: { ko: '개최 완료', en: 'Completed' },
         title: {
           ko: '제3회 데이터 경제 컨퍼런스: 데이터 경제 혁신과 규제',
-          en: '3rd Data Economy Conference: Innovation and Regulations in Data Economy',
+          en: '3rd Data Economy Conference: Data Economy Innovation & Regulation',
         },
         subtitle: {
           ko: '글로벌 트렌드와 한국의 과제 — 한국의 사회 및 직업 특성 변화 시리즈',
-          en: 'Global Trends and Implications for Korea — Social & Occupational Dynamics Series',
+          en: 'Global Trends and Implications for Korea — Social & Occupational Dynamics',
         },
+        venue: { ko: '대한상공회의소 중회의실 A', en: 'KCCI Conference Room A' },
         desc: {
-          ko: '서강대학교 기술경영전문대학원과 데이터경제포럼이 주관하여, 인공지능과 데이터 혁신에 대응하는 스마트 규제 및 글로벌 정책 트렌드를 논의한 국제 컨퍼런스입니다.',
-          en: 'An international conference hosted by Sogang University Graduate School of MOT and Data Economy Forum, addressing smart regulations and global policy trends in response to AI and data innovation.',
+          ko: '인공지능과 데이터 혁신에 대응하는 스마트 규제 및 글로벌 정책 트렌드를 논의한 국제 컨퍼런스입니다.',
+          en: 'An international conference discussing smart regulations and global trends responding to AI and data innovation.',
         },
         highlights: [
           {
             label: { ko: '기조강연', en: 'Keynote' },
             speaker: { ko: 'Prof. Scott Stern (MIT Sloan)', en: 'Prof. Scott Stern (MIT Sloan)' },
-            topic: { ko: 'The Artificial Intelligence "Shift": Implications for Smart Regulations', en: 'The Artificial Intelligence "Shift": Implications for Smart Regulations' },
+            topic: { ko: 'The Artificial Intelligence "Shift": Implications for Smart Regulations', en: 'The AI Shift: Implications for Smart Regulations' },
           },
           {
-            label: { ko: '플레너리 세션', en: 'Plenary Session' },
-            speaker: { ko: 'Sangbu Kim 디렉터 (Google Asia Pacific)', en: 'Sangbu Kim, Director (Google Asia Pacific)' },
-            topic: { ko: '데이터 경제 혁신과 규제: 글로벌 트렌드', en: 'Data Economy Innovation & Regulation: Global Trends' },
+            label: { ko: '글로벌 세션', en: 'Global' },
+            speaker: { ko: 'Sangbu Kim 디렉터 (Google Asia Pacific)', en: 'Sangbu Kim (Google Asia Pacific)' },
+            topic: { ko: '데이터 경제 혁신과 규제: APAC 글로벌 트렌드', en: 'Data Innovation & Global Trends in APAC' },
           },
           {
-            label: { ko: '축사 및 개회사', en: 'Opening' },
-            speaker: { ko: '심종혁 총장 (서강대학교) / 문성욱 교수 (서강대 MOT)', en: 'President Jonghyuk Sim (Sogang Univ.) / Prof. Sungwook Moon (Sogang MOT)' },
-            topic: { ko: '데이터 경제 혁신을 위한 산학연 협력 방향', en: 'Directions for Industry-Academia Cooperation' },
+            label: { ko: '국내 전문가', en: 'Domestic' },
+            speaker: { ko: '문성욱 교수 (서강대 MOT) · 고학수 위원장 (개인정보보호위원회)', en: 'Prof. Sungwook Moon · Haksoo Ko (PIPC)' },
+            topic: { ko: '데이터 혁신을 위한 스마트 규제와 개인정보 보호 정책 과제', en: 'Smart Regulation for Innovation & Privacy' },
           },
         ],
-        thumbnail: {
-          ko: 'images/conf-3rd-card.jpg',
-          en: 'images/conf-3rd-card-en.jpg',
-        },
-        fullPoster: {
-          ko: 'images/conf-3rd-invitation-ko.jpg',
-          en: 'images/conf-3rd-invitation-en.jpg',
-        },
-        videoUrl: 'http://data-economy.websympo.kr',
-        videoNote: {
-          ko: '컨퍼런스 온라인 중계 아카이브',
-          en: 'Conference Webinar Stream Archive',
-        },
       },
     ],
   },
