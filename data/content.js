@@ -238,6 +238,65 @@ const content = {
         output: { ko: '연구용 데이터셋 + Codebook', en: 'Research-ready datasets + Codebooks' },
       },
     ],
+    conferencesTitle: {
+      ko: '데이터 경제 컨퍼런스 시리즈',
+      en: 'Data Economy Conference Series',
+    },
+    conferencesSubtitle: {
+      ko: '데이터 경제 포럼 및 서강대학교 MOT가 주관하는 글로벌 학술·산학 컨퍼런스 아카이브입니다.',
+      en: 'Archive of international academic and industry conferences hosted by Data Economy Forum & Sogang MOT.',
+    },
+    conferences: [
+      {
+        id: 'conf-3rd',
+        edition: '3',
+        editionLabel: { ko: '제3회', en: '3rd Edition' },
+        date: '2023.01.05',
+        status: { ko: '개최 완료', en: 'Completed' },
+        title: {
+          ko: '제3회 데이터 경제 컨퍼런스: 데이터 경제 혁신과 규제',
+          en: '3rd Data Economy Conference: Innovation and Regulations in Data Economy',
+        },
+        subtitle: {
+          ko: '글로벌 트렌드와 한국의 과제 — 한국의 사회 및 직업 특성 변화 시리즈',
+          en: 'Global Trends and Implications for Korea — Social & Occupational Dynamics Series',
+        },
+        desc: {
+          ko: '서강대학교 기술경영전문대학원과 데이터경제포럼이 주관하여, 인공지능과 데이터 혁신에 대응하는 스마트 규제 및 글로벌 정책 트렌드를 논의한 국제 컨퍼런스입니다.',
+          en: 'An international conference hosted by Sogang University Graduate School of MOT and Data Economy Forum, addressing smart regulations and global policy trends in response to AI and data innovation.',
+        },
+        highlights: [
+          {
+            label: { ko: '기조강연', en: 'Keynote' },
+            speaker: { ko: 'Prof. Scott Stern (MIT Sloan)', en: 'Prof. Scott Stern (MIT Sloan)' },
+            topic: { ko: 'The Artificial Intelligence "Shift": Implications for Smart Regulations', en: 'The Artificial Intelligence "Shift": Implications for Smart Regulations' },
+          },
+          {
+            label: { ko: '플레너리 세션', en: 'Plenary Session' },
+            speaker: { ko: 'Sangbu Kim 디렉터 (Google Asia Pacific)', en: 'Sangbu Kim, Director (Google Asia Pacific)' },
+            topic: { ko: '데이터 경제 혁신과 규제: 글로벌 트렌드', en: 'Data Economy Innovation & Regulation: Global Trends' },
+          },
+          {
+            label: { ko: '축사 및 개회사', en: 'Opening' },
+            speaker: { ko: '심종혁 총장 (서강대학교) / 문성욱 교수 (서강대 MOT)', en: 'President Jonghyuk Sim (Sogang Univ.) / Prof. Sungwook Moon (Sogang MOT)' },
+            topic: { ko: '데이터 경제 혁신을 위한 산학연 협력 방향', en: 'Directions for Industry-Academia Cooperation' },
+          },
+        ],
+        thumbnail: {
+          ko: 'images/conf-3rd-card.jpg',
+          en: 'images/conf-3rd-card-en.jpg',
+        },
+        fullPoster: {
+          ko: 'images/conf-3rd-invitation-ko.jpg',
+          en: 'images/conf-3rd-invitation-en.jpg',
+        },
+        videoUrl: 'http://data-economy.websympo.kr',
+        videoNote: {
+          ko: '컨퍼런스 온라인 중계 아카이브',
+          en: 'Conference Webinar Stream Archive',
+        },
+      },
+    ],
   },
 
   // ── Data Infrastructure ─────────────────────────────────────

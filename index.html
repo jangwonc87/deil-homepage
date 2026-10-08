@@ -43,7 +43,7 @@
       },
     }
   </script>
-  <link rel="stylesheet" href="styles/globals.css?v=20261008-members">
+  <link rel="stylesheet" href="styles/globals.css?v=20261008-conf3">
 </head>
 <body class="font-sans text-gray-800 bg-white antialiased">
 
@@ -158,6 +158,21 @@
     </section>
   </main>
 
+  <!-- Media Modal (Video & Poster Lightbox) -->
+  <div id="media-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 transition-all duration-300" onclick="handleModalBackdropClick(event)">
+    <div class="relative bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden shadow-2xl flex flex-col" onclick="event.stopPropagation()">
+      <div class="flex items-center justify-between px-5 py-3.5 border-b border-gray-100 bg-gray-50/80">
+        <h3 id="modal-title" class="font-bold text-gray-900 text-sm sm:text-base truncate pr-4"></h3>
+        <button onclick="closeMediaModal()" class="text-gray-400 hover:text-gray-700 p-1.5 rounded-lg hover:bg-gray-100 transition-colors" aria-label="닫기">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div id="modal-body" class="overflow-y-auto flex-1 flex items-center justify-center bg-gray-950 p-2 sm:p-4">
+        <!-- Injected dynamically: image or video -->
+      </div>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer class="bg-sg-900 text-gray-400 py-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -166,7 +181,7 @@
     </div>
   </footer>
 
-  <script src="data/content.js?v=20261008-members"></script>
-  <script src="js/app.js?v=20261008-members"></script>
+  <script src="data/content.js?v=20261008-conf3"></script>
+  <script src="js/app.js?v=20261008-conf3"></script>
 </body>
 </html>

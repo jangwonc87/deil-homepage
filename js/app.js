@@ -206,6 +206,88 @@ function renderProjects() {
         </div>
       </div>
     </div>
+
+    <!-- Conference Series Section -->
+    ${p.conferences && p.conferences.length > 0 ? `
+      <div class="mt-16 sm:mt-24 pt-12 sm:pt-16 border-t border-gray-100">
+        <div class="grid lg:grid-cols-5 gap-8 sm:gap-12 lg:gap-16">
+          <div class="lg:col-span-2">
+            <div class="flex items-center gap-3 mb-4 sm:mb-5">
+              <div class="accent-line"></div>
+              <p class="text-sg-400 text-xs font-semibold tracking-[0.2em] uppercase">Conference Series</p>
+            </div>
+            <h3 class="section-reveal text-xl sm:text-2xl font-bold text-gray-900 leading-snug break-keep">${p.conferencesTitle[currentLang]}</h3>
+            <p class="section-reveal text-gray-500 text-xs sm:text-sm mt-3 leading-relaxed break-keep">${p.conferencesSubtitle[currentLang]}</p>
+            <div class="section-reveal mt-6 p-4 rounded-xl bg-sg-50/60 border border-sg-100/60 text-xs text-sg-800 leading-relaxed">
+              <span class="font-semibold text-sg-700 block mb-1">📢 ${currentLang === 'ko' ? '아카이브 안내' : 'Archive Notice'}</span>
+              ${currentLang === 'ko' 
+                ? '제3회 컨퍼런스 자료를 시작으로, 제4회·5회·6회 컨퍼런스 및 포럼 성과도 순차적으로 업데이트됩니다.' 
+                : 'Starting with the 3rd Conference, archives for the 4th, 5th, and 6th conferences will be updated sequentially.'}
+            </div>
+          </div>
+
+          <div class="lg:col-span-3 space-y-8">
+            ${p.conferences.map(conf => `
+              <div class="section-reveal bg-white rounded-2xl border border-gray-200/80 shadow-xs hover:shadow-lg transition-all duration-300 overflow-hidden group">
+                <!-- Media Thumbnail Banner with Play Overlay -->
+                <div class="relative aspect-[16/9] bg-gray-100 overflow-hidden cursor-pointer" onclick="openVideoModal('${conf.videoUrl}', '${conf.title[currentLang]}')">
+                  <img src="${conf.thumbnail[currentLang]}" alt="${conf.title[currentLang]}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <div class="absolute inset-0 bg-black/35 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white/95 text-sg-700 shadow-xl flex items-center justify-center pl-1 group-hover:scale-110 group-hover:bg-sg-600 group-hover:text-white transition-all duration-300">
+                      <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </div>
+                  </div>
+                  <!-- Edition & Date Badges -->
+                  <div class="absolute top-3 left-3 flex items-center gap-2">
+                    <span class="px-2.5 py-1 text-xs font-bold rounded-md bg-sg-700 text-white shadow-sm">${conf.editionLabel[currentLang]}</span>
+                    <span class="px-2.5 py-1 text-xs font-medium rounded-md bg-black/60 backdrop-blur-xs text-white">${conf.date}</span>
+                  </div>
+                  <div class="absolute bottom-3 right-3">
+                    <span class="px-2.5 py-1 text-[11px] font-medium rounded-full bg-white/90 text-gray-800 shadow-xs flex items-center gap-1">
+                      <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                      ${conf.status[currentLang]}
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Card Body -->
+                <div class="p-5 sm:p-7">
+                  <h4 class="text-lg sm:text-xl font-bold text-gray-900 leading-snug break-keep">${conf.title[currentLang]}</h4>
+                  <p class="text-xs sm:text-sm text-sg-600 font-medium mt-1 mb-3 break-keep">${conf.subtitle[currentLang]}</p>
+                  <p class="text-gray-600 text-xs sm:text-sm leading-relaxed mb-5 break-keep">${conf.desc[currentLang]}</p>
+
+                  <!-- Highlights List -->
+                  <div class="border-t border-gray-100 pt-4 mb-6 space-y-2.5">
+                    <p class="text-gray-400 text-[11px] font-semibold tracking-wider uppercase">${currentLang === 'ko' ? '주요 세션 및 연사' : 'Key Sessions & Speakers'}</p>
+                    ${conf.highlights.map(hl => `
+                      <div class="flex items-start gap-2.5 text-xs">
+                        <span class="px-2 py-0.5 rounded bg-gray-100 text-gray-600 font-medium text-[11px] flex-shrink-0 mt-0.5">${hl.label[currentLang]}</span>
+                        <div class="min-w-0 flex-1">
+                          <p class="font-semibold text-gray-800 break-keep">${hl.speaker[currentLang]}</p>
+                          <p class="text-gray-500 text-[11px] italic break-keep">${hl.topic[currentLang]}</p>
+                        </div>
+                      </div>
+                    `).join('')}
+                  </div>
+
+                  <!-- Action Buttons -->
+                  <div class="flex flex-wrap items-center gap-3 pt-3 border-t border-gray-100">
+                    <button onclick="openVideoModal('${conf.videoUrl}', '${conf.title[currentLang]}')" class="inline-flex items-center gap-2 px-4 py-2 bg-sg-700 hover:bg-sg-800 text-white text-xs font-semibold rounded-lg shadow-sm hover:shadow-md transition-all active:scale-98">
+                      <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                      <span>${currentLang === 'ko' ? '행사 영상 / 중계 보기' : 'Watch Stream / Video'}</span>
+                    </button>
+                    <button onclick="openPosterModal('${conf.fullPoster[currentLang]}', '${conf.title[currentLang]}')" class="inline-flex items-center gap-2 px-4 py-2 bg-gray-50 hover:bg-gray-100 text-gray-700 border border-gray-200 text-xs font-semibold rounded-lg transition-all active:scale-98">
+                      <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                      <span>${currentLang === 'ko' ? '초청장 및 상세 일정표 (PDF/이미지)' : 'View Official Invitation'}</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      </div>
+    ` : ''}
   `;
 }
 
@@ -529,4 +611,69 @@ function setupNavHighlight() {
 document.addEventListener('DOMContentLoaded', () => {
   setLang('ko');
   setupNavHighlight();
+});
+
+// ── Media Modal Controllers ──────────────────────────────────
+function openPosterModal(imageSrc, title) {
+  const modal = document.getElementById('media-modal');
+  const modalTitle = document.getElementById('modal-title');
+  const modalBody = document.getElementById('modal-body');
+
+  modalTitle.textContent = title || (currentLang === 'ko' ? '컨퍼런스 상세 초청장' : 'Conference Invitation');
+  modalBody.innerHTML = `
+    <div class="max-w-2xl w-full mx-auto my-auto flex flex-col items-center">
+      <img src="${imageSrc}" alt="${modalTitle.textContent}" class="max-h-[76vh] w-auto object-contain rounded-lg shadow-2xl">
+      <a href="${imageSrc}" download class="mt-3.5 inline-flex items-center gap-1.5 px-4 py-2 bg-white/10 hover:bg-white/20 text-white text-xs font-medium rounded-full transition-colors">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+        <span>${currentLang === 'ko' ? '고화질 원본 다운로드' : 'Download High-Res Invitation'}</span>
+      </a>
+    </div>
+  `;
+  modal.classList.remove('hidden');
+  document.body.classList.add('overflow-hidden');
+}
+
+function openVideoModal(videoUrl, title) {
+  const modal = document.getElementById('media-modal');
+  const modalTitle = document.getElementById('modal-title');
+  const modalBody = document.getElementById('modal-body');
+
+  modalTitle.textContent = title || (currentLang === 'ko' ? '컨퍼런스 영상' : 'Conference Video');
+  modalBody.innerHTML = `
+    <div class="w-full max-w-2xl bg-gray-900 rounded-xl p-8 text-center text-white my-auto flex flex-col items-center">
+      <div class="w-16 h-16 rounded-full bg-sg-700 flex items-center justify-center mb-5 text-white pl-1 shadow-lg ring-4 ring-sg-600/30">
+        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+      <h4 class="text-lg sm:text-xl font-bold mb-2 break-keep">${title}</h4>
+      <p class="text-xs sm:text-sm text-gray-300 max-w-md mb-6 leading-relaxed break-keep">
+        ${currentLang === 'ko' 
+          ? '본 컨퍼런스 세션 및 생중계 스트리밍은 웹 심포지엄 및 연구소 아카이브 플랫폼을 통해 제공됩니다.' 
+          : 'Conference session streams and recordings are hosted on the webinar archive platform.'}
+      </p>
+      <a href="${videoUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 bg-sg-600 hover:bg-sg-500 text-white text-xs sm:text-sm font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all active:scale-98">
+        <span>${currentLang === 'ko' ? '온라인 중계 아카이브 페이지 열기' : 'Open Streaming Archive'}</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+      </a>
+    </div>
+  `;
+  modal.classList.remove('hidden');
+  document.body.classList.add('overflow-hidden');
+}
+
+function closeMediaModal() {
+  const modal = document.getElementById('media-modal');
+  if (modal) {
+    modal.classList.add('hidden');
+    document.body.classList.remove('overflow-hidden');
+  }
+}
+
+function handleModalBackdropClick(event) {
+  if (event.target.id === 'media-modal') {
+    closeMediaModal();
+  }
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeMediaModal();
 });
