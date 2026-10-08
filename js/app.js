@@ -95,13 +95,13 @@ function renderHeader() {
   // Desktop nav
   const desktopNav = document.getElementById('desktop-nav');
   desktopNav.innerHTML = navKeys.map((key, i) =>
-    `<a href="#${sectionIds[i]}" class="nav-link px-3 py-2 text-sm font-medium text-gray-600 hover:text-sg-600 rounded-md hover:bg-gray-50 transition-all" data-section="${sectionIds[i]}">${nav[key]}</a>`
+    `<a href="#${sectionIds[i]}" class="nav-link px-3.5 py-2 text-sm font-semibold text-gray-800 hover:text-sg-700 rounded-md hover:bg-gray-50/80 transition-all tracking-tight" data-section="${sectionIds[i]}">${nav[key]}</a>`
   ).join('');
 
   // Mobile nav
   const mobileNav = document.getElementById('mobile-nav');
   mobileNav.innerHTML = navKeys.map((key, i) =>
-    `<a href="#${sectionIds[i]}" onclick="toggleMobileMenu()" class="block px-3.5 py-2.5 text-sm font-medium text-gray-700 hover:text-sg-600 hover:bg-sg-50 rounded-lg transition-all">${nav[key]}</a>`
+    `<a href="#${sectionIds[i]}" onclick="toggleMobileMenu()" class="block px-3.5 py-2.5 text-sm font-semibold text-gray-800 hover:text-sg-700 hover:bg-sg-50 rounded-lg transition-all">${nav[key]}</a>`
   ).join('');
 }
 
@@ -113,6 +113,13 @@ function renderHero() {
   document.getElementById('hero-sub-copy').textContent = h.subCopy;
   document.getElementById('hero-cta1').textContent = h.cta1;
   document.getElementById('hero-cta2').textContent = h.cta2;
+
+  const noticeLabel = document.getElementById('notice-label');
+  const noticeText = document.getElementById('notice-text');
+  if (noticeLabel) noticeLabel.textContent = currentLang === 'ko' ? '연구소 공지' : 'Lab Notice';
+  if (noticeText) noticeText.textContent = currentLang === 'ko' 
+    ? '제7회 데이터 경제 컨퍼런스 성과 및 연구 데이터셋 구축 안내' 
+    : '7th Data Economy Conference & Dataset Factory Updates';
 }
 
 // ── About Section ─────────────────────────────────────────────

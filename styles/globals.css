@@ -24,7 +24,7 @@ body {
 /* ── Selection ────────────────────────────────────────────── */
 ::selection {
   background: rgba(182, 0, 5, 0.12);
-  color: #73160d;
+  color: #73170D;
 }
 
 /* ── Section Reveal ───────────────────────────────────────── */
@@ -131,20 +131,20 @@ input:focus, textarea:focus {
   box-shadow: 0 0 0 3px rgba(182, 0, 5, 0.08);
 }
 
-/* ── Accent Line ──────────────────────────────────────────── */
+/* ── Accent Line (Official Sogang Crimson) ───────────────── */
 .accent-line {
-  width: 40px;
-  height: 2px;
-  background: linear-gradient(to right, #B60005, #d45a5a);
+  width: 36px;
+  height: 2.5px;
+  background-color: #B60005;
 }
 
-/* ── Hero Overlay (Mobile & Desktop Responsive) ───────────── */
+/* ── Hero Overlay (Sogang MOT Official Burgundy #73170D) ──── */
 .hero-overlay {
-  background: linear-gradient(180deg, rgba(112,0,3,0.92) 0%, rgba(90,16,9,0.88) 55%, rgba(90,16,9,0.75) 100%);
+  background: linear-gradient(180deg, rgba(115, 23, 13, 0.95) 0%, rgba(100, 18, 12, 0.90) 60%, rgba(90, 16, 10, 0.82) 100%);
 }
 @media (min-width: 640px) {
   .hero-overlay {
-    background: linear-gradient(to right, rgba(112,0,3,0.88) 0%, rgba(112,0,3,0.80) 32%, rgba(112,0,3,0.3) 45%, transparent 60%);
+    background: linear-gradient(to right, rgba(115, 23, 13, 0.93) 0%, rgba(115, 23, 13, 0.85) 36%, rgba(115, 23, 13, 0.38) 54%, transparent 72%);
   }
 }
 
