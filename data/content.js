@@ -632,7 +632,7 @@ const content = {
       collabBtn: '협력 문의',
       collabNote: '연구 협력, 데이터 인프라, 공동 프로젝트에 관심이 있으신 분은 문의해 주세요.',
       formName: '이름', formEmail: '이메일', formMessage: '메시지', formSubmit: '보내기',
-      formNote: '※ 이 폼은 데모용이며 실제 발송되지 않습니다.',
+      formNote: '※ 연구 및 협력 문의는 위 대표 이메일로 연락주시면 가장 빠르게 회신드립니다.',
     },
     en: {
       title: 'Contact',
@@ -643,20 +643,20 @@ const content = {
       collabBtn: 'Collaboration Inquiry',
       collabNote: 'For research collaboration, data infrastructure, or joint projects, please contact us.',
       formName: 'Name', formEmail: 'Email', formMessage: 'Message', formSubmit: 'Send',
-      formNote: '※ This form is for demo purposes and does not actually send messages.',
+      formNote: '※ For inquiries, please reach out via the email above for prompt response.',
     },
   },
 
   // ── Footer ──────────────────────────────────────────────────
   footer: {
     ko: {
-      demo: '데모 버전 \u2014 콘텐츠 및 구조는 검토 후 변경될 수 있습니다.',
-      copyright: '\u00a9 Research Institute of Data Economy and Innovation. All rights reserved.',
+      demo: '',
+      copyright: '© Research Institute of Data Economy and Innovation. All rights reserved.',
       confidentiality: 'Confidential raw data is not disclosed. Research outputs are shared only after appropriate review and approval.',
     },
     en: {
-      demo: 'Demo version \u2014 content and structure are subject to review.',
-      copyright: '\u00a9 Research Institute of Data Economy and Innovation. All rights reserved.',
+      demo: '',
+      copyright: '© Research Institute of Data Economy and Innovation. All rights reserved.',
       confidentiality: 'Confidential raw data is not disclosed. Research outputs are shared only after appropriate review and approval.',
     },
   },
